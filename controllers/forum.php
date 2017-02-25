@@ -45,4 +45,8 @@ class forum extends CI_Controller {
 	{
 		$this->load->view('loginform');
 	}
+	public function watki()
+	{
+		$this->load->view
+	}
 }
