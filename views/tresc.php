@@ -15,7 +15,7 @@
 <th>Wszystkich Postów</th>
 </tr>
 <tr>
-<td><?php echo $w->name; ?></td>
+<td><a herf<?php echo $w->name; ?></td>
 <td><?php echo $w->authorname; ?></td>
 <td><?php echo $w->startdate; ?></td>
 <td><?php echo $w->actudate; ?></td>

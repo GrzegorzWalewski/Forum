@@ -14,7 +14,9 @@ class forum extends CI_Controller {
 		$this->load->view('header');
 		if ($this->tank_auth->is_logged_in())
 		{
-		$this->load->view('profil',$dane);
+		$userid=$data['user_id']	= $this->tank_auth->get_user_id();
+		$data['username']	= $this->tank_auth->get_username();
+		$this->load->view('profil',$data);
 		}
 		else
 		{
@@ -30,13 +32,17 @@ class forum extends CI_Controller {
 		$data['new']=$this->download_model->newer();
 		$data['curtime']=date("Y-m-d H:i:s");
 		$this->load->view('news',$data);
-		if (!$this->tank_auth->is_logged_in()&&$this->input->get('addpost',TRUE))
+		if ($this->input->get('addpost',TRUE))
 		{
-		redirect('/forum/loginform','refresh');
+			if(!$this->tank_auth->is_logged_in())
+			{
+		redirect('/auth/login/');
+		}
+		else{redirect('/forum/addpostform','refresh');}
 		}
 	}
 	public function loginform()
 	{
-		echo "TO DZIALAAAAAAAAAAAAAAAAAAAAAAAAAAA";
+		$this->load->view('loginform');
 	}
 }
