@@ -11,18 +11,9 @@ class index extends CI_Controller {
 	}
 	public function index()
 	{
-		$this->load->view('header');
+		//$this->load->view('search');
 		
-		/*
-		$this->load->view('search');
-						*/
-		$this->load->view('menu');
-		$this->load->model('download_model');
-		$data['wazne']=$this->download_model->wazne();
-		$this->load->view('tresc',$data);
-		$data['new']=$this->download_model->newer();
-		$data['curtime']=date("Y-m-d H:i:s");
-		$this->load->view('news',$data);
+		
 		if ($this->input->get('addpost',TRUE))
 		{
 			if(!$this->tank_auth->is_logged_in())
@@ -32,13 +23,15 @@ class index extends CI_Controller {
 		else{redirect('/forum/addpostform','refresh');}
 		}
 	}
-	public function loginform()
-	{
-		$this->load->view('loginform');
-	}
 	public function watki()
 	{
 	
+	}
+	public function primary()
+	{
+		$this->load->model('download_model');
+		$data['wazne']=$this->download_model->wazne();
+		$this->load->view('tresc',$data);
 	}
 	public function who()
 	{
@@ -52,5 +45,11 @@ class index extends CI_Controller {
 		{
 			$this->load->view('guest');
 		}
+	}
+	public function newer(){
+		$this->load->model('download_model');
+		$data['new']=$this->download_model->newer();
+		$data['curtime']=date("Y-m-d H:i:s");
+		$this->load->view('news',$data);
 	}
 }
