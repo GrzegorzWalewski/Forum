@@ -1,1 +1,0 @@
-<?php echo anchor('/auth/logout/', 'Logout'); ?>
