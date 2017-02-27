@@ -14,9 +14,9 @@
 </tr>
 <tr><?php echo "by ".$w->authorname; ?></tr>
 <?php
-$datetime1 = strtotime($w->actudate);// WYLICZĆ CZAS JAKI UPŁYNĄŁ OD OSTATNIEJ AKTUALIZACJI DO TERAZ
+$datetime1 = strtotime($w->actudate);
 $datetime2 = strtotime($curtime);
-$secs = $datetime2 - $datetime1;// == <seconds between the two times>
+$secs = $datetime2 - $datetime1;
 $minutes=round($secs/60);
 $hours=round($secs/3600);
 $days =round($secs / 86400);
