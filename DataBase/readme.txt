@@ -1,0 +1,1 @@
+Plik z backupem bazy danych u¿ytej w projekcie
