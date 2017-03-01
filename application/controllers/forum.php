@@ -11,11 +11,11 @@ class forum extends CI_Controller {
 	}
 	public function index()
 	{
-			
+		$this->load->view('controller');		
 	}
 	public function regulamin()
 	{
-		
+		$this->load->view('guest');
 	}
 	public function kupa(){$this->load->view('guest');}
 }
