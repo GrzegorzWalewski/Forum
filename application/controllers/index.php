@@ -18,9 +18,9 @@ class index extends CI_Controller {
 		{
 			if(!$this->tank_auth->is_logged_in())
 			{
-		redirect('/auth/login/');
-		}
-		else{redirect('/forum/addpostform','refresh');}
+				redirect('/auth/login/');
+			}
+			else{redirect('/forum/addpostform','refresh');}
 		}
 	}
 	public function watki()
@@ -37,16 +37,17 @@ class index extends CI_Controller {
 	{
 		if ($this->tank_auth->is_logged_in())
 		{
-		$userid=$data['user_id']	= $this->tank_auth->get_user_id();
-		$data['username']	= $this->tank_auth->get_username();
-		$this->load->view('profil',$data);
+			$userid=$data['user_id']	= $this->tank_auth->get_user_id();
+			$data['username']	= $this->tank_auth->get_username();
+			$this->load->view('profil',$data);
 		}
 		else
 		{
 			$this->load->view('guest');
 		}
 	}
-	public function newer(){
+	public function newer()
+	{
 		$this->load->model('download_model');
 		$data['new']=$this->download_model->newer();
 		$data['curtime']=date("Y-m-d H:i:s");
