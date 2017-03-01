@@ -62,5 +62,8 @@ function loadNewer()
 </div>
 <div id="newer">
 </div>
+<?php if (isset($_GET['regulamin'])){
+	echo 'JESTES BLE';
+} ?>
 </body>
 </html>

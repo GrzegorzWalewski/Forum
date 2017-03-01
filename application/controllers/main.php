@@ -23,9 +23,9 @@ class index extends CI_Controller {
 			else{redirect('/forum/addpostform','refresh');}
 		}
 	}
-	public function watki()
+	public function regulamin()
 	{
-	
+		
 	}
 	public function primary()
 	{
