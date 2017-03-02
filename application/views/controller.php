@@ -69,7 +69,11 @@ function loadNewer()
 <td><?php echo $w->authorname; ?></td>
 <?php endforeach; ?>
 <?php foreach($posty->result() as $w): ?>
-<?php echo "Tylko w ramach testu-nazwa posta ".$w->name; ?>
+<?php echo "Nazwa posta ".$w->name; ?>
+<?php echo "Twórca posta "$w->authorname; ?>
+<?php echo "Data ostatniej aktualizacjii "$w->actudate; ?>
+<?php echo "Odpowiedzi "$w->odp; ?>
+<?php echo "Wyświetleń "$w->wys; ?>
 <?php endforeach; ?>
 </div>
 </body>
