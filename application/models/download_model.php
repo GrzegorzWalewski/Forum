@@ -21,10 +21,13 @@ Class download_model extends CI_Model
 		return $s;
 
 	}
-	public function getwatek($)
+	public function getwatek($adress)
 	{
-		$this->db->select('name, id, authorname');
-		$this->db->where()
+		$this->db->select('name,authorname,id');
+		$this->db->where('name',$adress);
+		$s=$this->db->get('watki');
+		$s->result();
+		return $s;
 	}
 }
 

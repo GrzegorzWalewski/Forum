@@ -26,8 +26,9 @@ class index extends CI_Controller {
 	public function watki()
 	{	
 		$this->load->model('download_Model');
-		$data['adress']=$this->uri->segment(5);
-		$this->download_Model->getwatek($data);
+		$adress=$this->uri->segment(3);
+		$data['watek']=$this->download_Model->getwatek($adress);
+		$this->load->view('controller',$data);
 	}
 	public function primary()
 	{

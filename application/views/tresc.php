@@ -15,7 +15,7 @@
 <th>Wszystkich Postów</th>
 </tr>
 <tr>
-<td><a href=/default/index.php/watki/?<?php echo strtolower($w->name);?>><?php echo $w->name;?></a></td>
+<td><a href=/default/index.php/index/watki/<?php echo $w->name;?>><?php echo $w->name;?></a></td>
 <td><?php echo $w->authorname; ?></td>
 <td><?php echo $w->startdate; ?></td>
 <td><?php echo $w->actudate; ?></td>

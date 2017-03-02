@@ -62,5 +62,12 @@ function loadNewer()
 </div>
 <div id="newer">
 </div>
+<div>
+<?php foreach($watek->result() as $w): ?>
+<tr>
+<td><?php echo $w->name; ?></td>
+<td><?php echo $w->authorname; ?></td>
+<?php endforeach; ?>
+</div>
 </body>
 </html>
