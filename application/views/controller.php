@@ -68,6 +68,9 @@ function loadNewer()
 <td><?php echo $w->name; ?></td>
 <td><?php echo $w->authorname; ?></td>
 <?php endforeach; ?>
+<?php foreach($posty->result() as $w): ?>
+<?php echo "Tylko w ramach testu-nazwa posta ".$w->name; ?>
+<?php endforeach; ?>
 </div>
 </body>
 </html>

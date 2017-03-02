@@ -29,8 +29,12 @@ Class download_model extends CI_Model
 		$s->result();
 		return $s;
 	}
-	public function getposts($watekid)//pobiera posty przypisane do danego wątku
+	public function getposts($watekdata)//pobiera posty przypisane do danego wątku
 	{
+		foreach($watekdata->result() as $watek)
+		{
+			$watekid=$watek->id;
+		}
 		$this->db->select('id, name, authorname, actudate, odp, wys');
 		$this->db->where('watekid',$watekid);
 		$s=$this->db->get('posty');

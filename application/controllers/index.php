@@ -28,6 +28,7 @@ class index extends CI_Controller {
 		$this->load->model('download_Model');
 		$adress=$this->uri->segment(3);
 		$data['watek']=$this->download_Model->getwatek($adress);
+		$data['posty']=$this->download_Model->getposts($data['watek'])
 		$this->load->view('controller',$data);
 	}
 	public function primary()
