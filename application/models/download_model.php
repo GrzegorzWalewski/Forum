@@ -21,7 +21,7 @@ Class download_model extends CI_Model
 		return $s;
 
 	}
-	public function getwatek($adress)
+	public function getwatek($adress)//pobiera dane wątku o danej nazwie
 	{
 		$this->db->select('name,authorname,id');
 		$this->db->where('name',$adress);
@@ -29,6 +29,15 @@ Class download_model extends CI_Model
 		$s->result();
 		return $s;
 	}
+	public function getposts($watekid)//pobiera posty przypisane do danego wątku
+	{
+		$this->db->select('id, name, authorname, actudate, odp, wys');
+		$this->db->where('watekid',$watekid);
+		$s=$this->db->get('posty');
+		$s->result();
+		return $s;
+	}
+	
 }
 
 ?>
