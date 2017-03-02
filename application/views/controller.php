@@ -58,23 +58,34 @@ function loadNewer()
 		<td><a href="forum/regulamin">Kontakt</a></td>
 	</tr>
 </table>
-<div id="primary">
-</div>
+<?php
+	if(!isset($watek))
+	{
+		echo "<div id=\"primary\"></div>";
+	}
+?>
 <div id="newer">
 </div>
 <div>
-<?php foreach($watek->result() as $w): ?>
-<tr>
-<td><?php echo $w->name; ?></td>
-<td><?php echo $w->authorname; ?></td>
-<?php endforeach; ?>
-<?php foreach($posty->result() as $w): ?>
-<?php echo "Nazwa posta ".$w->name; ?>
-<?php echo "Twórca posta ".$w->authorname; ?>
-<?php echo "Data ostatniej aktualizacjii ".$w->actudate; ?>
-<?php echo "Odpowiedzi ".$w->odp; ?>
-<?php echo "Wyświetleń ".$w->wys; ?>
-<?php endforeach; ?>
+<?php
+	if(isset($watek))
+	{
+	foreach($watek->result() as $w)
+		{
+			echo "<tr>";
+			echo "<td>".$w->name."</td>";
+			echo "<td>".$w->authorname."</td>";
+		}
+	foreach($posty->result() as $w)
+		{
+			echo "Nazwa posta ".$w->name;
+			echo "Twórca posta ".$w->authorname;
+			echo "Data ostatniej aktualizacjii ".$w->actudate;
+			echo "Odpowiedzi ".$w->odp;
+			echo "Wyświetleń ".$w->wys;
+		}
+	}
+?>
 </div>
 </body>
 </html>
