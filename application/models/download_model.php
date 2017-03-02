@@ -7,7 +7,7 @@ Class download_model extends CI_Model
 		}
 	public function wazne()//pobiera wątki oznaczone jako ważne
 	{
-		$this->db->select('name,startdate,authorname,actudate,posts');
+		$this->db->select('name,startdate,authorname,actudate,posts,id');
 		$this->db->where('important=1');
 		$s=$this->db->get('watki');
 		$s->result();
@@ -24,19 +24,15 @@ Class download_model extends CI_Model
 	public function getwatek($adress)//pobiera dane wątku o danej nazwie
 	{
 		$this->db->select('name,authorname,id');
-		$this->db->where('name',$adress);
+		$this->db->where('id',$adress);
 		$s=$this->db->get('watki');
 		$s->result();
 		return $s;
 	}
-	public function getposts($watekdata)//pobiera posty przypisane do danego wątku
+	public function getposts($adress)//pobiera posty przypisane do danego wątku
 	{
-		foreach($watekdata->result() as $watek)
-		{
-			$watekid=$watek->id;
-		}
 		$this->db->select('id, name, authorname, actudate, odp, wys');
-		$this->db->where('watekid',$watekid);
+		$this->db->where('watkiid',$adress);
 		$s=$this->db->get('posty');
 		$s->result();
 		return $s;

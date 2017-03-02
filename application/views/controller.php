@@ -70,10 +70,10 @@ function loadNewer()
 <?php endforeach; ?>
 <?php foreach($posty->result() as $w): ?>
 <?php echo "Nazwa posta ".$w->name; ?>
-<?php echo "Twórca posta "$w->authorname; ?>
-<?php echo "Data ostatniej aktualizacjii "$w->actudate; ?>
-<?php echo "Odpowiedzi "$w->odp; ?>
-<?php echo "Wyświetleń "$w->wys; ?>
+<?php echo "Twórca posta ".$w->authorname; ?>
+<?php echo "Data ostatniej aktualizacjii ".$w->actudate; ?>
+<?php echo "Odpowiedzi ".$w->odp; ?>
+<?php echo "Wyświetleń ".$w->wys; ?>
 <?php endforeach; ?>
 </div>
 </body>
