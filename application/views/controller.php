@@ -72,17 +72,33 @@ function loadNewer()
 	{
 	foreach($watek->result() as $w)
 		{
+			echo "<table>"
+			echo "<tr>
+			<th>Nazwa wątku </th>
+			<th>Autor wątku </th>";
 			echo "<tr>";
 			echo "<td>".$w->name."</td>";
 			echo "<td>".$w->authorname."</td>";
+			echo "</table>";
 		}
 	foreach($posty->result() as $w)
-		{
-			echo "Nazwa posta ".$w->name;
-			echo "Twórca posta ".$w->authorname;
-			echo "Data ostatniej aktualizacjii ".$w->actudate;
-			echo "Odpowiedzi ".$w->odp;
-			echo "Wyświetleń ".$w->wys;
+		{ 
+			echo "<table>
+			<tr>
+			<th>Nazwa posta </th>
+			<th>Autor posta </th>
+			<th>Data ostatniej aktualizacji</th>
+		 <th>Odpowiedzi </th>
+   <th>Wyświetleń </th>
+   </tr>
+   <tr>
+   <td>".$w->name."</td>
+			<td>".$w->authorname."</td>
+			<td>".$w->actudate."</td>
+			<td>".$w->odp."</td>
+			<td>".$w->wys."</td>
+			</tr>
+			</table>";
 		}
 	}
 ?>
