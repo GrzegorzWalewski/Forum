@@ -72,14 +72,16 @@ function loadNewer()
 	{
 	foreach($watek->result() as $w)
 		{
-			echo "<table>"
-			echo "<tr>
+			echo "<table>
+			<tr>
 			<th>Nazwa wątku </th>
-			<th>Autor wątku </th>";
-			echo "<tr>";
-			echo "<td>".$w->name."</td>";
-			echo "<td>".$w->authorname."</td>";
-			echo "</table>";
+			<th>Autor wątku </th>
+			</tr>
+			<tr>
+			<td>".$w->name."</td>
+			<td>".$w->authorname."</td>
+			</tr>
+			</table>";
 		}
 	foreach($posty->result() as $w)
 		{ 
