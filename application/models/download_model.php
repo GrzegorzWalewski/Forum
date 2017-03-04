@@ -47,7 +47,7 @@ Class download_model extends CI_Model
 	}
 	public function wpisy($adress)
 	{
-		$this->db->select('id, addtime, authorname');
+		$this->db->select('id, addtime, authorname, content');
 		$this->db->where('postyid',$adress);
 		$s=$this->db->get('wpisy');
 		$s->result();

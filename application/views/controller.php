@@ -59,7 +59,7 @@ function loadNewer()
 	</tr>
 </table>
 <?php
-	if(!isset($watek))
+	if(!isset($watek)&&!isset($posty))
 	{
 		echo "<div id=\"primary\"></div>";
 	}
@@ -103,6 +103,28 @@ function loadNewer()
 			</table>";
 		}
 	}
+if(isset($wpisy))
+{
+	foreach($posty->result() as $w)
+	{
+		 echo "<table>
+			<tr>
+			<th>Nazwa posta </th>
+			<th>Autor posta </th>
+			</tr>
+			<tr>
+			<td>".$w->name."</td>
+			<td>".$w->authorname."</td>
+			</tr>
+			</table>";
+	}
+	foreach($wpisy->result() as $w)
+	{
+		echo "Autor: ".$w->authorname;
+		echo "Data dodania: ".$w->addtime;
+		echo "Treść: ".$w->content;
+	}
+}
 ?>
 </div>
 </body>

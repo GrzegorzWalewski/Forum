@@ -62,7 +62,7 @@ class index extends CI_Controller {
 		$this->load->model('download_Model');
 		$adress=$this->uri->segment(3);
 		$data['posty']=$this->download_Model->posty($adress);
-		$this->download_Model->wpisy($adress);
-		
+		$data['wpisy']=$this->download_Model->wpisy($adress);
+		$this->load->view('controller',$data);
 	}
 }
