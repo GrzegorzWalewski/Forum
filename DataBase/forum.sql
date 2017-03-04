@@ -184,6 +184,13 @@ CREATE TABLE `wpisy` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='Wszystkie wpisy';
 
 --
+-- Zrzut danych tabeli `wpisy`
+--
+
+INSERT INTO `wpisy` (`id`, `addtime`, `authorname`, `text`, `postyid`, `watkiid`) VALUES
+(1, '2017-03-04 20:27:08', 'Grzojda', 'Nie przeklinamy!', 1, 0);
+
+--
 -- Indeksy dla zrzutów tabel
 --
 
@@ -271,7 +278,7 @@ ALTER TABLE `user_profiles`
 -- AUTO_INCREMENT dla tabeli `wpisy`
 --
 ALTER TABLE `wpisy`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- Ograniczenia dla zrzutów tabel
 --

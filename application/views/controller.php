@@ -122,7 +122,7 @@ if(isset($wpisy))
 	{
 		echo "Autor: ".$w->authorname;
 		echo "Data dodania: ".$w->addtime;
-		echo "Treść: ".$w->content;
+		echo "Treść: ".$w->text;
 	}
 }
 ?>
