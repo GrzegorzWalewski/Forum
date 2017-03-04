@@ -94,7 +94,7 @@ function loadNewer()
    <th>Wyświetleń </th>
    </tr>
    <tr>
-   <td>".$w->name."</td>
+   <td><a href=/default/index.php/index/posty/".$w->id.">".$w->name."</a></td>
 			<td>".$w->authorname."</td>
 			<td>".$w->actudate."</td>
 			<td>".$w->odp."</td>

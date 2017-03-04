@@ -57,4 +57,12 @@ class index extends CI_Controller {
 		$data['curtime']=date("Y-m-d H:i:s");
 		$this->load->view('news',$data);
 	}
+	public function posty()
+	{
+		$this->load->model('download_Model');
+		$adress=$this->uri->segment(3);
+		$data['posty']=$this->download_Model->posty($adress);
+		$this->download_Model->wpisy($adress);
+		
+	}
 }

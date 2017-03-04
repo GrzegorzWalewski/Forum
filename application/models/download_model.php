@@ -37,7 +37,22 @@ Class download_model extends CI_Model
 		$s->result();
 		return $s;
 	}
-	
+	public function posty($adress)
+	{
+		$this->db->select('id, name, authorname');
+		$this->db->where('id',$adress);
+		$s=$this->db->get('posty');
+		$s->result();
+		return $s;
+	}
+	public function wpisy($adress)
+	{
+		$this->db->select('id, addtime, authorname');
+		$this->db->where('postyid',$adress);
+		$s=$this->db->get('wpisy');
+		$s->result();
+		return $s;
+	}
 }
 
 ?>
