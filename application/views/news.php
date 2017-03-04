@@ -4,7 +4,7 @@
 <meta cherset="utf-8">
 </head>
 <body>
-<h1>Najnowsze wpisy</h1>
+<h1>Najnowsze wątki</h1>
 <?php foreach($new->result() as $w): ?>
 <table>
 <tr>
