@@ -70,7 +70,7 @@ function loadNewer()
 <?php
 	if(isset($watek))
 	{
-	foreach($watek->result() as $w)
+		foreach($watek->result() as $w)
 		{
 			echo "<table>
 			<tr>
@@ -83,24 +83,28 @@ function loadNewer()
 			</tr>
 			</table>";
 		}
-	foreach($posty->result() as $w)
+		foreach($posty->result() as $w)
 		{ 
 			echo "<table>
 			<tr>
 			<th>Nazwa posta </th>
 			<th>Autor posta </th>
 			<th>Data ostatniej aktualizacji</th>
-		 <th>Odpowiedzi </th>
-   <th>Wyświetleń </th>
-   </tr>
-   <tr>
-   <td><a href=/default/index.php/index/posty/".$w->id.">".$w->name."</a></td>
+		 	<th>Odpowiedzi </th>
+		   	<th>Wyświetleń </th>
+		   	</tr>
+		  	<tr>
+		   	<td><a href=/default/index.php/index/posty/".$w->id.">".$w->name."</a></td>
 			<td>".$w->authorname."</td>
 			<td>".$w->actudate."</td>
 			<td>".$w->odp."</td>
 			<td>".$w->wys."</td>
 			</tr>
 			</table>";
+		}
+		if(isset($role)&&$role=="administrator"||$role=="administrator_watkow")
+		{
+			echo "<a href=\"/default/index.php/index/addwatek\">Dodaj watek</a>";
 		}
 	}
 if(isset($wpisy))
