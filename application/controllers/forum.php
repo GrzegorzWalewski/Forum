@@ -11,6 +11,16 @@ class forum extends CI_Controller {
 	}
 	public function index()
 	{
-			$this->load->view('controller');
+		 if($this->tank_auth->is_logged_in())
+		 {
+		 	$userid=$this->tank_auth->get_user_id();
+		 	$this->load->model('user_Model');
+		 	$data['role']=$this->user_Model->getrole($userid);
+		 	$this->load->view('controller',$data);
+		 }
+		 else
+		 {
+		 	 			$this->load->view('controller');
+		 }
 	}
 }
