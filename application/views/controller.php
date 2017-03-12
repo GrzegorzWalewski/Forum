@@ -47,8 +47,7 @@ function loadNewer()
 }
 </script>
 </head>
-<body onload="loadDoc(); loadPrimary(); loadNewer();">
-<p>Najlepsze Forum</p>
+<body onload="loadDoc();<?php if(!isset($watki)&&!isset($posty)){echo "loadPrimary();";}?> loadNewer();">
 <div id="who">
 </div>
 <table>
@@ -58,12 +57,7 @@ function loadNewer()
 		<td><a href="forum/regulamin">Kontakt</a></td>
 	</tr>
 </table>
-<?php
-	if(!isset($watek)&&!isset($posty))
-	{
-		echo "<div id=\"primary\"></div>";
-	}
-?>
+<div id="primary"></div>
 <div id="newer">
 </div>
 <div>
