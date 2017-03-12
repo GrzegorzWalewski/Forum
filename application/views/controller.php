@@ -45,10 +45,23 @@ function loadNewer()
 	xhttp.send();
 	setTimeout("loadNewer()",1000);
 }
+function loadRole()
+{
+	var xhttp=new XMLHttpRequest();
+	xhttp.onreadystatechange=function()
+	{
+		if(this.readyState==4 && this.status==200)
+		{
+			document.getElementById("userbuttons").innerHTML=this.responseText;
+		}
+	}
+	xhttp.open("GET","/default/index.php/index/userrole",true);
+	xhttp.send();
+	setTimeout("loadRole()",1000);
+}
 </script>
 </head>
-<body onload="loadDoc(); loadPrimary(); loadNewer();">
-<p>Najlepsze Forum</p>
+<body onload="loadDoc(); loadRole(); <?php if(!isset($watki)&&!isset($posty)){echo "loadPrimary();";}?> loadNewer();">
 <div id="who">
 </div>
 <table>
@@ -58,15 +71,11 @@ function loadNewer()
 		<td><a href="forum/regulamin">Kontakt</a></td>
 	</tr>
 </table>
-<?php
-	if(!isset($watek)&&!isset($posty))
-	{
-		echo "<div id=\"primary\"></div>";
-	}
-?>
+<div id="userbuttons">
+</div>
+<div id="primary"></div>
 <div id="newer">
 </div>
-<div>
 <?php
 	if(isset($watek))
 	{
@@ -102,10 +111,6 @@ function loadNewer()
 			</tr>
 			</table>";
 		}
-		if(isset($role)&&$role=="administrator"||$role=="administrator_watkow")
-		{
-			echo "<a href=\"/default/index.php/index/addwatek\">Dodaj watek</a>";
-		}
 	}
 if(isset($wpisy))
 {
@@ -130,6 +135,5 @@ if(isset($wpisy))
 	}
 }
 ?>
-</div>
 </body>
 </html>

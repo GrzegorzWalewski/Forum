@@ -10,6 +10,7 @@ class forum extends CI_Controller {
 		$this->load->library('tank_auth');
 	}
 	public function index()
+<<<<<<< HEAD
 	{
 		 if($this->tank_auth->is_logged_in())
 		 {
@@ -22,5 +23,9 @@ class forum extends CI_Controller {
 		 {
 		 	 			$this->load->view('controller');
 		 }
+=======
+	{	
+			$this->load->view('controller');	
+>>>>>>> 2.1.8
 	}
 }

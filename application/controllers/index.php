@@ -39,11 +39,6 @@ class index extends CI_Controller {
 	{
 		if ($this->tank_auth->is_logged_in())
 		{
-
-			$userid=$data['user_id']	= $this->tank_auth->get_user_id();
-			$this->load->model('user_Model');
-			$data['role']=$this->user_Model->getrole($userid);
-			$this->load->view('controller',$data);
 			$userid=$data['user_id']	= $this->tank_auth->get_user_id();
 			$data['username']	= $this->tank_auth->get_username();
 			$this->load->view('profil',$data);
@@ -67,5 +62,16 @@ class index extends CI_Controller {
 		$data['posty']=$this->download_Model->posty($adress);
 		$data['wpisy']=$this->download_Model->wpisy($adress);
 		$this->load->view('controller',$data);
+	}
+	public function userrole()
+	{
+				$userid=$this->tank_auth->get_user_id();
+				$this->load->model('user_Model');
+				$data['role']=$this->user_Model->getrole($userid);
+				$this->load->view('rolebutton',$data);
+	}
+	public function addwatek()
+	{
+		$data['userid']=$this->tank_auth->get_user_id();
 	}
 }

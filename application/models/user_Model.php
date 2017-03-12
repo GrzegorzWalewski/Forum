@@ -1,5 +1,5 @@
 <?php
-Class download_model extends CI_Model
+Class user_Model extends CI_Model
 {
 		function _construct(){
 			parent::_construct;
@@ -10,7 +10,8 @@ Class download_model extends CI_Model
 		$this->db->select('role');
 		$this->db->where('id',$userid);
 		$s=$this->db->get('author');
-		$r=$s->result();
-		return $r;
+		$r=$s->row();
+		$d=$r->role;
+		return $d;
 	}
 }
