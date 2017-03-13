@@ -73,5 +73,6 @@ class index extends CI_Controller {
 	public function addwatek()
 	{
 		$data['userid']=$this->tank_auth->get_user_id();
+		$this->load->view('addformw',$data);
 	}
 }
