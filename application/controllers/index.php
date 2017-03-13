@@ -65,14 +65,17 @@ class index extends CI_Controller {
 	}
 	public function userrole()
 	{
-				$userid=$this->tank_auth->get_user_id();
-				$this->load->model('user_Model');
-				$data['role']=$this->user_Model->getrole($userid);
-				$this->load->view('rolebutton',$data);
+		if($this->tank_auth->is_logged_in())
+		{
+			$userid=$this->tank_auth->get_user_id();
+			$this->load->model('user_Model');
+			$data['role']=$this->user_Model->getrole($userid);
+			$this->load->view('rolebutton',$data);
+		}
 	}
 	public function addwatek()
 	{
-		$data['userid']=$this->tank_auth->get_user_id();
+		$data['username']=$this->tank_auth->get_username();
 		$this->load->view('addformw',$data);
 	}
 }

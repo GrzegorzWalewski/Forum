@@ -47,6 +47,10 @@ else if($minutes>=1)
 		echo $minutes." minutes ago";
 	}
 }
+else
+{
+	echo "Wlasnie teraz";
+}
 ?>
 <?php endforeach; ?>
 </table>
