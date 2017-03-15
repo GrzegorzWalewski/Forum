@@ -70,6 +70,7 @@ class index extends CI_Controller {
 			$userid=$this->tank_auth->get_user_id();
 			$this->load->model('user_Model');
 			$data['role']=$this->user_Model->getrole($userid);
+			$data['adress']=$this->uri->segment(1);
 			$this->load->view('rolebutton',$data);
 		}
 	}
