@@ -55,7 +55,7 @@ function loadRole()
 			document.getElementById("userbuttons").innerHTML=this.responseText;
 		}
 	}
-	xhttp.open("GET","/default/index.php/index/userrole",true);
+	xhttp.open("GET","/default/index.php/index/userrole<?php if(isset($watek)){echo "/watek";}if(isset($posty)){echo "/posty";} ?>",true);
 	xhttp.send();
 	setTimeout("loadRole()",1000);
 }

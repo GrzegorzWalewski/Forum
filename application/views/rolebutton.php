@@ -6,28 +6,17 @@
 <body>
 <div>
 	<?php
-		if(isset($role)&&$role=="administrator")
-		{
-			echo "<a href=\"/default/index.php/index/addwatek\">Dodaj watek</a>";
-			echo "<a href=\"/default/index.php/index/addwpis\">Dodaj wpis</a>";
-		}
-		else if(isset($role)&&$role=="administrator_watkow")
-		{
-			echo "<a href=\"/default/index.php/index/addwatek\">Dodaj watek</a>";
-			echo "<a href=\"/default/index.php/index/addwpis\">Dodaj wpis</a>";
-		}
-		else if(isset($role)&&$role=="administrator_postow")
+		if(isset($role)&&$role!=""&&isset($adress)&&$adress=="watek")
 		{
 			echo "<a href=\"/default/index.php/index/addpost\">Dodaj post</a>";
-			echo "<a href=\"/default/index.php/index/addwpis\">Dodaj wpis</a>";
 		}
-		else if(isset($role)&&$role=="moderator")
+		else if(isset($role)&&$role!=""&&isset($adress)&&$adress=="posty")
 		{
 			echo "<a href=\"/default/index.php/index/addwpis\">Dodaj wpis</a>";
 		}
-		if(isset($role)&&$role!=""&&isset($adress))
+		else if(isset($role)&&$role=="administrator"||$role=="administrator_watkow")
 		{
-			echo "<a href=\"/default/index.php/index/addpost\">Dodaj post</a>".$adress;
+			echo "<a href=\"/default/index.php/index/addwatek\">Dodaj watek</a>";
 		}
 	?>
 </div>	
