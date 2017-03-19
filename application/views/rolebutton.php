@@ -8,7 +8,7 @@
 	<?php
 		if(isset($role)&&$role!=""&&isset($adress)&&$adress=="watek")
 		{
-			echo "<a href=\"/default/index.php/index/addpost\">Dodaj post</a>";
+			echo "<a href=\"/default/index.php/index/addpost/".$id."\">Dodaj post</a>";
 		}
 		else if(isset($role)&&$role!=""&&isset($adress)&&$adress=="posty")
 		{

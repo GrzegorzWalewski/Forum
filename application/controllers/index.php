@@ -25,6 +25,7 @@ class index extends CI_Controller {
 	{	
 		$this->load->model('download_Model');
 		$adress=$this->uri->segment(3);
+		$data['id']=$this->uri->segment(3);
 		$data['watek']=$this->download_Model->getwatek($adress);
 		$data['posty']=$this->download_Model->getposts($adress);
 		$this->load->view('controller',$data);
@@ -58,7 +59,7 @@ class index extends CI_Controller {
 	public function posty()
 	{
 		$this->load->model('download_Model');
-		$adress=$this->uri->segment(3);
+		$data['watkiid']=$adress=$this->uri->segment(3);
 		$data['posty']=$this->download_Model->posty($adress);
 		$data['wpisy']=$this->download_Model->wpisy($adress);
 		$this->load->view('controller',$data);
@@ -71,6 +72,7 @@ class index extends CI_Controller {
 			$this->load->model('user_Model');
 			$data['role']=$this->user_Model->getrole($userid);
 			$data['adress']=$this->uri->segment(3);
+			$data['id']=$this->uri->segment(5);
 			$this->load->view('rolebutton',$data);
 		}
 	}
@@ -78,5 +80,11 @@ class index extends CI_Controller {
 	{
 		$data['username']=$this->tank_auth->get_username();
 		$this->load->view('addformw',$data);
+	}
+	public function addpost()
+	{
+		$data['username']=$this->tank_auth->get_username();
+		$data['watkiid']=$this->uri->segment(3);
+		$this->load->view('addformp',$data);
 	}
 }

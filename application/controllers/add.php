@@ -18,4 +18,22 @@ class add extends CI_Controller {
 		$this->load->model('upload_Model');
 		$this->upload_Model->watek($username,$time,$name,$important);
 	}
+	public function post()
+	{
+		$username=$this->input->post('username');
+		$time=$this->input->post('time');
+		$name=$this->input->post('name');
+		$watkiid=$this->input->post('watkiid');
+		$this->load->model('upload_Model');
+		$this->upload_Model->post($username,$time,$name,$watkiid);
+	}
+	public function wpis()
+	{
+		$username=$this->input->post('username');
+		$time=$this->input->post('time');
+		$name=$this->input->post('name');
+		$important=$this->input->post('important');
+		$this->load->model('upload_Model');
+		$this->upload_Model->watek($username,$time,$name,$important);
+	}
 }

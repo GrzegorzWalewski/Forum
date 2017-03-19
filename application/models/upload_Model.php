@@ -15,6 +15,16 @@ Class upload_Model extends CI_Model
 			);
 		$this->db->insert('watki',$data);
 	}
+	public function post($username,$time,$name,$watkiid)
+	{
+		$data=array(
+			'name'=>$name,
+			'authorname'=>$username,
+			'starttime'=>$time,
+			'watkiid'=>$watkiid
+			);
+		$this->db->insert('posty',$data);
+	}
 }
 
 ?>

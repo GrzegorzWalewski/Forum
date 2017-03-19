@@ -55,13 +55,13 @@ function loadRole()
 			document.getElementById("userbuttons").innerHTML=this.responseText;
 		}
 	}
-	xhttp.open("GET","/default/index.php/index/userrole<?php if(isset($watek)){echo "/watek";}if(isset($posty)){echo "/posty";} ?>",true);
+	xhttp.open("GET","/default/index.php/index/userrole<?php if(isset($watek)){echo "/watek";}if(isset($posty)){echo '/posty/'.$id;} ?>",true);
 	xhttp.send();
 	setTimeout("loadRole()",1000);
 }
 </script>
 </head>
-<body onload="loadDoc(); loadRole(); <?php if(!isset($watki)&&!isset($posty)){echo "loadPrimary();";}?> loadNewer();">
+<body onload="loadDoc(); loadRole(); loadNewer(); <?php if(!isset($watki)&&!isset($posty)){echo "loadPrimary();";}?> ">
 <div id="who">
 </div>
 <table>

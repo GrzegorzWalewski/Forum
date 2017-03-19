@@ -23,23 +23,24 @@ CREATE TABLE `author` (
   `last_ip` varchar(40) NOT NULL,
   `last_login` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `created` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `role` text CHARACTER SET utf8 COLLATE utf8_bin NOT NULL COMMENT 'Rola urzytkownika'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Zrzut danych tabeli `author`
 --
 
-INSERT INTO `author` (`id`, `authorname`, `authormail`, `password`, `activated`, `banned`, `ban_reason`, `new_password_key`, `new_password_requested`, `new_email`, `new_email_key`, `last_ip`, `last_login`, `created`, `modified`) VALUES
-(2, 'Grzojdaaaaaa', 'alakadazam@uuqw.kk', '$2a$08$dgthgL5DYbExXoAzUkoOr.1/SIiWPlTzZvB3WbXtdAuQhzxXs35C6', 1, 0, NULL, NULL, NULL, NULL, NULL, '::1', '2017-02-27 20:29:23', '0000-00-00 00:00:00', '2017-02-27 19:29:23'),
-(3, 'Grzegorz', 'grzojda@gmial.com', 'passworek', 1, 0, NULL, NULL, NULL, NULL, NULL, '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2017-01-23 06:07:49'),
-(8, 'Ten LEpszy', 'jjslmsdf@gnm.pl', 'niemahasla', 1, 0, NULL, NULL, NULL, NULL, NULL, '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2017-01-23 06:07:49'),
-(9, 'kupa', 'grzesiu2203@gmail.com', 'itakniezgadniesz', 1, 0, NULL, NULL, NULL, NULL, NULL, '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2017-01-23 06:07:49'),
-(10, 'Blondynka', 'gunwo@gg.pkl', 'najlepszehaslo', 1, 0, NULL, NULL, NULL, NULL, NULL, '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2017-01-23 06:07:49'),
-(11, 'Burak', 'frzygam@uu1.pl', 'mizeria', 1, 0, NULL, NULL, NULL, NULL, NULL, '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2017-01-23 06:07:49'),
-(13, 'Blondynka', 'marianna.pomykala@vip.onet.pl', 'kochamjoo', 1, 0, NULL, NULL, NULL, NULL, NULL, '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2017-01-23 06:07:49'),
-(14, 'As', 'gggguhi@ggcjh.pl', 'loljuznie', 1, 0, NULL, NULL, NULL, NULL, NULL, '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2017-01-23 06:07:49'),
-(15, 'Grzojdatel', 'grzojda@gmail.com', '$2a$08$n5bJYHgjFbaEyD2jrSemrewH4GYyQgDl2MlT2cVw1h6/4TgfomjDK', 1, 0, NULL, NULL, NULL, NULL, '4076fc9c34d70e9855c3cdf56afadb60', '192.168.0.148', '2017-02-03 14:33:15', '2017-01-28 15:55:44', '2017-02-03 13:33:15');
+INSERT INTO `author` (`id`, `authorname`, `authormail`, `password`, `activated`, `banned`, `ban_reason`, `new_password_key`, `new_password_requested`, `new_email`, `new_email_key`, `last_ip`, `last_login`, `created`, `modified`, `role`) VALUES
+(2, 'Grzojdaaaaaa', 'alakadazam@uuqw.kk', '$2a$08$dgthgL5DYbExXoAzUkoOr.1/SIiWPlTzZvB3WbXtdAuQhzxXs35C6', 1, 0, NULL, NULL, NULL, NULL, NULL, '::1', '2017-03-19 18:46:35', '0000-00-00 00:00:00', '2017-03-19 17:46:35', 'administrator'),
+(3, 'Grzegorz', 'grzojda@gmial.com', '$2a$08$dgthgL5DYbExXoAzUkoOr.1/SIiWPlTzZvB3WbXtdAuQhzxXs35C6', 1, 0, NULL, NULL, NULL, NULL, NULL, '::1', '2017-03-06 16:25:32', '0000-00-00 00:00:00', '2017-03-06 15:25:32', ''),
+(8, 'Ten LEpszy', 'jjslmsdf@gnm.pl', 'niemahasla', 1, 0, NULL, NULL, NULL, NULL, NULL, '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2017-01-23 06:07:49', ''),
+(9, 'kupa', 'grzesiu2203@gmail.com', 'itakniezgadniesz', 1, 0, NULL, NULL, NULL, NULL, NULL, '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2017-01-23 06:07:49', ''),
+(10, 'Blondynka', 'gunwo@gg.pkl', 'najlepszehaslo', 1, 0, NULL, NULL, NULL, NULL, NULL, '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2017-01-23 06:07:49', ''),
+(11, 'Burak', 'frzygam@uu1.pl', 'mizeria', 1, 0, NULL, NULL, NULL, NULL, NULL, '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2017-01-23 06:07:49', ''),
+(13, 'Blondynka', 'marianna.pomykala@vip.onet.pl', 'kochamjoo', 1, 0, NULL, NULL, NULL, NULL, NULL, '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2017-01-23 06:07:49', ''),
+(14, 'As', 'gggguhi@ggcjh.pl', 'loljuznie', 1, 0, NULL, NULL, NULL, NULL, NULL, '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2017-01-23 06:07:49', ''),
+(15, 'Grzojdatel', 'grzojda@gmail.com', '$2a$08$n5bJYHgjFbaEyD2jrSemrewH4GYyQgDl2MlT2cVw1h6/4TgfomjDK', 1, 0, NULL, NULL, NULL, NULL, '4076fc9c34d70e9855c3cdf56afadb60', '192.168.0.148', '2017-02-03 14:33:15', '2017-01-28 15:55:44', '2017-02-03 13:33:15', '');
 
 -- --------------------------------------------------------
 
@@ -77,7 +78,8 @@ CREATE TABLE `posty` (
 --
 
 INSERT INTO `posty` (`id`, `name`, `authorname`, `starttime`, `actudate`, `odp`, `wys`, `lastuser`, `watkiid`) VALUES
-(1, 'Głowny Regulamin', 'Grzojda', '2017-02-24', '2017-03-13 18:49:51', 0, 10, 'Grzojda', 1);
+(1, 'Głowny Regulamin', 'Grzojda', '2017-02-24', '2017-03-13 18:49:51', 0, 10, 'Grzojda', 1),
+(6, 'Regulamin Dotyczący  wątków', 'Grzojdaaaaaa', '2017-03-19', '2017-03-19 18:04:00', 0, 0, '', 1);
 
 -- --------------------------------------------------------
 
@@ -212,7 +214,7 @@ ALTER TABLE `login_attempts`
 --
 ALTER TABLE `posty`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `watkiid` (`watkiid`);
+  ADD KEY `watkiid` (`watkiid`) USING BTREE;
 
 --
 -- Indexes for table `users`
@@ -259,12 +261,12 @@ ALTER TABLE `author`
 -- AUTO_INCREMENT dla tabeli `login_attempts`
 --
 ALTER TABLE `login_attempts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT dla tabeli `posty`
 --
 ALTER TABLE `posty`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT dla tabeli `users`
 --
@@ -279,7 +281,7 @@ ALTER TABLE `user_profiles`
 -- AUTO_INCREMENT dla tabeli `watki`
 --
 ALTER TABLE `watki`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT dla tabeli `wpisy`
 --
