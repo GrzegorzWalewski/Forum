@@ -59,7 +59,7 @@ class index extends CI_Controller {
 	public function posty()
 	{
 		$this->load->model('download_Model');
-		$data['watkiid']=$this->uri->segment(3);
+		$data['id']=$this->uri->segment(3);
 		$adress=$this->uri->segment(3);
 		$data['posty']=$this->download_Model->posty($adress);
 		$data['wpisy']=$this->download_Model->wpisy($adress);
@@ -73,7 +73,14 @@ class index extends CI_Controller {
 			$this->load->model('user_Model');
 			$data['role']=$this->user_Model->getrole($userid);
 			$data['adress']=$this->uri->segment(3);
-			$data['id']=$this->uri->segment(5);
+			if($data['adress']=="wpisy")
+			{
+				$data['id']=$this->uri->segment(4);
+			}
+			else
+			{
+				$data['id']=$this->uri->segment(5);
+			}
 			$this->load->view('rolebutton',$data);
 		}
 	}

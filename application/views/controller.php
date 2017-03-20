@@ -55,7 +55,7 @@ function loadRole()
 			document.getElementById("userbuttons").innerHTML=this.responseText;
 		}
 	}
-	xhttp.open("GET","/default/index.php/index/userrole/<?php if(isset($watek)){echo "watek";}if(isset($posty)&&!isset($wpisy)){echo "posty/".$id;} ?>",true);
+	xhttp.open("GET","/default/index.php/index/userrole<?php if(isset($watek)&&!isset($wpisy)){echo "/watek/";}if(isset($posty)&&!isset($wpisy)){echo "/posty/".$id;}if(isset($wpisy)){echo "/wpisy/".$id;} ?>",true);
 	xhttp.send();
 	setTimeout("loadRole()",1000);
 }
