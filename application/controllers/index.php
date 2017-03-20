@@ -59,7 +59,8 @@ class index extends CI_Controller {
 	public function posty()
 	{
 		$this->load->model('download_Model');
-		$data['watkiid']=$adress=$this->uri->segment(3);
+		$data['watkiid']=$this->uri->segment(3);
+		$adress=$this->uri->segment(3);
 		$data['posty']=$this->download_Model->posty($adress);
 		$data['wpisy']=$this->download_Model->wpisy($adress);
 		$this->load->view('controller',$data);
