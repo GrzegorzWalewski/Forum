@@ -29,11 +29,11 @@ class add extends CI_Controller {
 	}
 	public function wpis()
 	{
-		$username=$this->input->post('username');
+		$authorname=$this->input->post('authorname');
 		$time=$this->input->post('time');
-		$name=$this->input->post('name');
-		$important=$this->input->post('important');
+		$text=$this->input->post('text');
+		$postyid=$this->input->post('postyid');
 		$this->load->model('upload_Model');
-		$this->upload_Model->watek($username,$time,$name,$important);
+		$this->upload_Model->wpis($authorname,$time, $text, $postyid);
 	}
 }

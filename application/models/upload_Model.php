@@ -25,6 +25,16 @@ Class upload_Model extends CI_Model
 			);
 		$this->db->insert('posty',$data);
 	}
+	public function wpis($authorname,$time, $text, $postyid)
+	{
+		$data=array(
+			'addtime'=>$time,
+			'authorname'=>$authorname,
+			'text'=>$text,
+			'postyid'=>$postyid
+			);
+		$this->db->insert('wpisy',$data);
+	}
 }
 
 ?>

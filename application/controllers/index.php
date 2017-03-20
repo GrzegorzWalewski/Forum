@@ -95,4 +95,10 @@ class index extends CI_Controller {
 		$data['watkiid']=$this->uri->segment(3);
 		$this->load->view('addformp',$data);
 	}
+	public function addwpis()
+	{
+		$data['username']=$this->tank_auth->get_username();
+		$data['postid']=$this->uri->segment(3);
+		$this->load->view('addformwp',$data);
+	}
 }
