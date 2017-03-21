@@ -14,7 +14,7 @@ function loadDoc()
 			document.getElementById("who").innerHTML=this.responseText;
 		}
 	}
-	xhttp.open("GET","/default/index.php/index/who",true);
+	xhttp.open("GET","/default/index/who",true);
 	xhttp.send();
 	setTimeout("loadDoc()",1000);
 }
@@ -28,7 +28,7 @@ function loadPrimary()
 			document.getElementById("primary").innerHTML=this.responseText;
 		}
 	}
-	xhttp.open("GET","/default/index.php/index/primary",true);
+	xhttp.open("GET","/default/index/primary",true);
 	xhttp.send();
 }
 function loadNewer()
@@ -41,7 +41,7 @@ function loadNewer()
 			document.getElementById("newer").innerHTML=this.responseText;
 		}
 	}
-	xhttp.open("GET","/default/index.php/index/newer",true);
+	xhttp.open("GET","/default/index/newer",true);
 	xhttp.send();
 	setTimeout("loadNewer()",1000);
 }
@@ -55,7 +55,7 @@ function loadRole()
 			document.getElementById("userbuttons").innerHTML=this.responseText;
 		}
 	}
-	xhttp.open("GET","/default/index.php/index/userrole<?php if(isset($watek)&&!isset($wpisy)){echo "/watek/";}if(isset($posty)&&!isset($wpisy)){echo "/posty/".$id;}if(isset($wpisy)){echo "/wpisy/".$id;} ?>",true);
+	xhttp.open("GET","/default/index/userrole<?php if(isset($watek)&&!isset($wpisy)){echo "/watek/";}if(isset($posty)&&!isset($wpisy)){echo "/posty/".$id;}if(isset($wpisy)){echo "/wpisy/".$id;} ?>",true);
 	xhttp.send();
 	setTimeout("loadRole()",1000);
 }
@@ -130,8 +130,8 @@ else if(isset($wpisy))
 	foreach($wpisy->result() as $w)
 	{
 		echo "Autor: ".$w->authorname;
-		echo "Data dodania: ".$w->addtime;
-		echo "Treść: ".$w->text;
+		echo "Data dodania: ".$w->addtime."</br>";
+		echo "Treść: ".$w->text."</br>";
 	}
 }
 ?>

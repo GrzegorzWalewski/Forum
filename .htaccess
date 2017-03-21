@@ -1,0 +1,5 @@
+RewriteEngine on
+RewriteCond $1 !^([a-zA-z0-9/])
+RewriteRule ^(.*)$ /default/index.php [L]
+RewriteCond $1 !^(index\.php|styles|scripts|img|images|logo|news_images|robots.txt|system|user_guid)
+RewriteRule ^(.*)$ /default/index.php/$1 [L]

@@ -32,7 +32,7 @@ CREATE TABLE `author` (
 --
 
 INSERT INTO `author` (`id`, `authorname`, `authormail`, `password`, `activated`, `banned`, `ban_reason`, `new_password_key`, `new_password_requested`, `new_email`, `new_email_key`, `last_ip`, `last_login`, `created`, `modified`, `role`) VALUES
-(2, 'Grzojdaaaaaa', 'alakadazam@uuqw.kk', '$2a$08$dgthgL5DYbExXoAzUkoOr.1/SIiWPlTzZvB3WbXtdAuQhzxXs35C6', 1, 0, NULL, NULL, NULL, NULL, NULL, '::1', '2017-03-19 18:46:35', '0000-00-00 00:00:00', '2017-03-19 17:46:35', 'administrator'),
+(2, 'Grzojdaaaaaa', 'alakadazam@uuqw.kk', '$2a$08$dgthgL5DYbExXoAzUkoOr.1/SIiWPlTzZvB3WbXtdAuQhzxXs35C6', 1, 0, NULL, NULL, NULL, NULL, NULL, '::1', '2017-03-21 05:54:58', '0000-00-00 00:00:00', '2017-03-21 04:54:58', 'administrator'),
 (3, 'Grzegorz', 'grzojda@gmial.com', '$2a$08$dgthgL5DYbExXoAzUkoOr.1/SIiWPlTzZvB3WbXtdAuQhzxXs35C6', 1, 0, NULL, NULL, NULL, NULL, NULL, '::1', '2017-03-06 16:25:32', '0000-00-00 00:00:00', '2017-03-06 15:25:32', ''),
 (8, 'Ten LEpszy', 'jjslmsdf@gnm.pl', 'niemahasla', 1, 0, NULL, NULL, NULL, NULL, NULL, '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2017-01-23 06:07:49', ''),
 (9, 'kupa', 'grzesiu2203@gmail.com', 'itakniezgadniesz', 1, 0, NULL, NULL, NULL, NULL, NULL, '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2017-01-23 06:07:49', ''),
@@ -132,6 +132,7 @@ CREATE TABLE `user_autologin` (
 
 INSERT INTO `user_autologin` (`key_id`, `user_id`, `user_agent`, `last_ip`, `last_login`) VALUES
 ('3b6005cec6d7f00620bf3152030ff476', 15, 'Mozilla/5.0 (Linux; U; Android 4.4.2; pl-pl; A916 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/42.0.0.0 Mobile Safari/537.', '192.168.0.148', '2017-02-03 13:33:15'),
+('b3bc0fc3f1a22a0f1558be0c644bd05f', 2, 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:52.0) Gecko/20100101 Firefox/52.0', '::1', '2017-03-21 04:54:58'),
 ('bfb557ea6bed8b521144407293a75360', 2, 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0', '::1', '2017-01-27 08:50:55');
 
 -- --------------------------------------------------------
@@ -182,16 +183,16 @@ CREATE TABLE `wpisy` (
   `addtime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Czas dodania lub modyfikacji',
   `authorname` text NOT NULL COMMENT 'Nazwa urzytkownika',
   `text` text NOT NULL COMMENT 'Caly tekst wpisu',
-  `postyid` int(11) NOT NULL,
-  `watkiid` int(11) NOT NULL
+  `postyid` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='Wszystkie wpisy';
 
 --
 -- Zrzut danych tabeli `wpisy`
 --
 
-INSERT INTO `wpisy` (`id`, `addtime`, `authorname`, `text`, `postyid`, `watkiid`) VALUES
-(1, '2017-03-13 18:49:34', 'Grzojda', 'Nie przeklinamy!', 1, 1);
+INSERT INTO `wpisy` (`id`, `addtime`, `authorname`, `text`, `postyid`) VALUES
+(1, '2017-03-13 18:49:34', 'Grzojda', 'Nie przeklinamy!', 1),
+(3, '2017-03-19 23:00:00', 'Grzojdaaaaaa', 'Prosz? o dodanie, ?e za zbyt cz?ste b??dy ortograficzne b?dzie ban', 1);
 
 --
 -- Indeksy dla zrzutów tabel
@@ -245,8 +246,7 @@ ALTER TABLE `watki`
 --
 ALTER TABLE `wpisy`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `postyid` (`postyid`,`watkiid`),
-  ADD KEY `watkiid` (`watkiid`);
+  ADD KEY `postyid` (`postyid`) USING BTREE;
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -261,7 +261,7 @@ ALTER TABLE `author`
 -- AUTO_INCREMENT dla tabeli `login_attempts`
 --
 ALTER TABLE `login_attempts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT dla tabeli `posty`
 --
@@ -286,7 +286,7 @@ ALTER TABLE `watki`
 -- AUTO_INCREMENT dla tabeli `wpisy`
 --
 ALTER TABLE `wpisy`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- Ograniczenia dla zrzutów tabel
 --
@@ -301,8 +301,7 @@ ALTER TABLE `posty`
 -- Ograniczenia dla tabeli `wpisy`
 --
 ALTER TABLE `wpisy`
-  ADD CONSTRAINT `wpisy_ibfk_1` FOREIGN KEY (`postyid`) REFERENCES `posty` (`id`),
-  ADD CONSTRAINT `wpisy_ibfk_2` FOREIGN KEY (`watkiid`) REFERENCES `watki` (`id`);
+  ADD CONSTRAINT `wpisy_ibfk_1` FOREIGN KEY (`postyid`) REFERENCES `posty` (`id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

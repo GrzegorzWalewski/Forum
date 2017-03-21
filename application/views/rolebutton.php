@@ -8,15 +8,15 @@
 	<?php
 		if(isset($role)&&$role!=""&&isset($adress)&&$adress=="watek")
 		{
-			echo "<a href=\"/default/index.php/index/addpost/".$id."\">Dodaj post</a>";
+			echo "<a href=\"/default/index/addpost/".$id."\">Dodaj post</a>";
 		}
 		else if(isset($role)&&$role!=""&&isset($adress)&&$adress=="wpisy")
 		{
-			echo "<a href=\"/default/index.php/index/addwpis/".$id."\">Dodaj wpis</a>";
+			echo "<a href=\"/default/index/addwpis/".$id."\">Dodaj wpis</a>";
 		}
 		else if(isset($role)&&$role=="administrator"||$role=="administrator_watkow")
 		{
-			echo "<a href=\"/default/index.php/index/addwatek\">Dodaj watek".$adress."</a>";
+			echo "<a href=\"/default/index/addwatek\">Dodaj watek".$adress."</a>";
 		}
 	?>
 </div>	
