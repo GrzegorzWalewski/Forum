@@ -110,6 +110,15 @@ function loadRole()
 			<td>".$w->wys."</td>
 			</tr>
 			</table>";
+			if(isset($role)&&$role=="administrator"||isset($role)&&$role=="administrator_postow")
+				{
+					$attributes=array('id' => 'delform','method'=>'post');
+					echo form_open('del/post',$attributes);
+					echo form_hidden('id',$w->id);
+					echo form_submit('submit','Usuń posta');
+				}	
+			
+
 		}
 	}
 else if(isset($wpisy))

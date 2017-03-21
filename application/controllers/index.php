@@ -24,6 +24,13 @@ class index extends CI_Controller {
 	public function watki()
 	{	
 		$this->load->model('download_Model');
+		if($this->tank_auth->is_logged_in())
+		{
+			$this->load->model('user_Model');
+			$userid=$this->tank_auth->get_user_id();	
+			$data['role']=$this->user_Model->getrole($userid);
+			$data['username']=$this->tank_auth->get_username();
+		}
 		$adress=$this->uri->segment(3);
 		$data['id']=$this->uri->segment(3);
 		$data['watek']=$this->download_Model->getwatek($adress);
