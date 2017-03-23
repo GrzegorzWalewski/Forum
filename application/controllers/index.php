@@ -63,10 +63,11 @@ class index extends CI_Controller {
 		$data['curtime']=date("Y-m-d H:i:s");
 		$this->load->view('news',$data);
 	}
-	public function posty()//Pobiera posty i przekazuje do widoku
+	public function posty()//Pobiera posty i wpisy ,przekazuje do widoku
 	{
 		$this->load->model('download_Model');
 		$data['id']=$this->uri->segment(3);
+		$data['username']=$this->tank_auth->get_username();
 		$adress=$this->uri->segment(3);
 		$data['posty']=$this->download_Model->posty($adress);
 		$data['wpisy']=$this->download_Model->wpisy($adress);

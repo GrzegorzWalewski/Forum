@@ -14,4 +14,10 @@ Class Update_Model extends CI_Model
 		$this->db->where('id', $id);
 		$this->db->update('posty', $array);
 	}
+		public function wpis($id,$text)//Updatuje post
+	{
+		$this->db->set('text',$text);
+		$this->db->where('id', $id);
+		$this->db->update('wpisy');
+	}
 }

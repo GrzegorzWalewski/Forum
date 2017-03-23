@@ -103,7 +103,7 @@ function loadRole()
 		   	<th>Wyświetleń </th>
 		   	</tr>
 		  	<tr>
-		   	<td><a href=/default/index.php/index/posty/".$w->id.">".$w->name."</a></td>
+		   	<td><a href=/default/index/posty/".$w->id.">".$w->name."</a></td>
 			<td>".$w->authorname."</td>
 			<td>".$w->actudate."</td>
 			<td>".$w->odp."</td>
@@ -148,6 +148,15 @@ else if(isset($wpisy))
 		echo "Autor: ".$w->authorname;
 		echo "Data dodania: ".$w->addtime."</br>";
 		echo "Treść: ".$w->text."</br>";
+		if($w->authorname==$username)
+		{
+			$attributes=array('id' => 'editform','method'=>'post');
+					echo form_open('edit/wpisform',$attributes);
+					echo form_hidden('id',$w->id);
+					echo form_hidden('text',$w->text);
+					echo form_submit('submit','Edytuj');
+					echo form_close();
+		}
 	}
 }
 ?>
