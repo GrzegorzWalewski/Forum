@@ -20,6 +20,7 @@
 	echo "Ważny: ";
 	echo form_dropdown('important',$options);
 	echo form_submit('submit','Dodaj Watek');
+	echo form_close();
 ?>
 
 </body>

@@ -15,6 +15,7 @@
 	echo form_input('name');
 	echo form_hidden('watkiid',$watkiid);
 	echo form_submit('submit','Dodaj Posta');
+	echo form_close();
 ?>
 
 </body>

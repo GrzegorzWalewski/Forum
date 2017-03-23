@@ -11,6 +11,7 @@
 	echo form_hidden('id',$id);
 	echo form_submit('submit','Tak');
 	echo form_submit('submit','Nie');
+	echo form_close();
 ?>
 </body>
 </html>

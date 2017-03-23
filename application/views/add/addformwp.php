@@ -15,6 +15,7 @@
 	echo form_textarea('text');
 	echo form_hidden('postyid',$postid);
 	echo form_submit('submit','Dodaj Wpis');
+	echo form_close();
 ?>
 
 </body>

@@ -9,6 +9,23 @@ class add extends CI_Controller {
 		$this->load->helper('url');
 		$this->load->library('tank_auth');
 	}
+	public function watekform()
+	{
+		$data['username']=$this->tank_auth->get_username();
+		$this->load->view('add/addformw',$data);
+	}
+	public function postform()
+	{
+		$data['username']=$this->tank_auth->get_username();
+		$data['watkiid']=$this->uri->segment(3);
+		$this->load->view('add/addformp',$data);
+	}
+		public function wpisform()
+	{
+		$data['username']=$this->tank_auth->get_username();
+		$data['postid']=$this->uri->segment(3);
+		$this->load->view('add/addformwp',$data);
+	}
 	public function watek()
 	{
 		$username=$this->input->post('username');

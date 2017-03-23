@@ -91,21 +91,4 @@ class index extends CI_Controller {
 			$this->load->view('rolebutton',$data);
 		}
 	}
-	public function addwatek()
-	{
-		$data['username']=$this->tank_auth->get_username();
-		$this->load->view('addformw',$data);
-	}
-	public function addpost()
-	{
-		$data['username']=$this->tank_auth->get_username();
-		$data['watkiid']=$this->uri->segment(3);
-		$this->load->view('addformp',$data);
-	}
-	public function addwpis()
-	{
-		$data['username']=$this->tank_auth->get_username();
-		$data['postid']=$this->uri->segment(3);
-		$this->load->view('addformwp',$data);
-	}
 }
