@@ -5,7 +5,7 @@ Class upload_Model extends CI_Model
 			parent::_construct;
 			$this->load->database();
 		}
-	public function watek($username,$time,$name,$important)
+	public function watek($username,$time,$name,$important)//Dodaje wątek
 	{
 		$data=array(
 			'name'=>$name,
@@ -15,7 +15,7 @@ Class upload_Model extends CI_Model
 			);
 		$this->db->insert('watki',$data);
 	}
-	public function post($username,$time,$name,$watkiid)
+	public function post($username,$time,$name,$watkiid)//Dodaje posta
 	{
 		$data=array(
 			'name'=>$name,
@@ -25,7 +25,7 @@ Class upload_Model extends CI_Model
 			);
 		$this->db->insert('posty',$data);
 	}
-	public function wpis($authorname,$time, $text, $postyid)
+	public function wpis($authorname,$time, $text, $postyid)//Dodaje wpis
 	{
 		$data=array(
 			'addtime'=>$time,

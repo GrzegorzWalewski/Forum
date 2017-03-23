@@ -21,7 +21,7 @@ class index extends CI_Controller {
 			else{redirect('/forum/addpostform','refresh');}
 		}
 	}
-	public function watki()
+	public function watki()//Pobiera i przekazuje do widoku wątki
 	{	
 		$this->load->model('download_Model');
 		if($this->tank_auth->is_logged_in())
@@ -37,13 +37,13 @@ class index extends CI_Controller {
 		$data['posty']=$this->download_Model->getposts($adress);
 		$this->load->view('controller',$data);
 	}
-	public function primary()
+	public function primary()//Pobiera i przekazuje do widoku ważne wątki
 	{
 		$this->load->model('download_model');
 		$data['wazne']=$this->download_model->wazne();
 		$this->load->view('tresc',$data);
 	}
-	public function who()
+	public function who()//Pobiera informacje o użytkowniku i wyświetla dane o nim, lub linki do logowania i rejestracji
 	{
 		if ($this->tank_auth->is_logged_in())
 		{
@@ -56,14 +56,14 @@ class index extends CI_Controller {
 			$this->load->view('guest');
 		}
 	}
-	public function newer()
+	public function newer()//Pobiera najnowsze wątki i przekazuje do widoku
 	{
 		$this->load->model('download_model');
 		$data['new']=$this->download_model->newer();
 		$data['curtime']=date("Y-m-d H:i:s");
 		$this->load->view('news',$data);
 	}
-	public function posty()
+	public function posty()//Pobiera posty i przekazuje do widoku
 	{
 		$this->load->model('download_Model');
 		$data['id']=$this->uri->segment(3);
@@ -72,7 +72,7 @@ class index extends CI_Controller {
 		$data['wpisy']=$this->download_Model->wpisy($adress);
 		$this->load->view('controller',$data);
 	}
-	public function userrole()
+	public function userrole()//Pobiera role użytkownika oraz wyświetla przycisk z funkcją która mu przysługuje
 	{
 		if($this->tank_auth->is_logged_in())
 		{

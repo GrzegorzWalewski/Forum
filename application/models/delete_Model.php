@@ -5,7 +5,7 @@ Class delete_Model extends CI_Model
 			parent::_construct;
 			$this->load->database();
 		}
-		public function post($id)//usuwa wybranego posta i wszystkie przypisane do niego wpisy
+		public function post($id)//Usuwa wybranego posta i wszystkie przypisane do niego wpisy
 		{
 			$this->db->where('id',$id);
 			$this->db->delete('posty');

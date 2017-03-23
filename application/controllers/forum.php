@@ -9,7 +9,7 @@ class forum extends CI_Controller {
 		$this->load->helper('url');
 		$this->load->library('tank_auth');
 	}
-	public function index()
+	public function index()//ładuje główny widok
 	{		
 			$this->load->view('controller');	
 	}

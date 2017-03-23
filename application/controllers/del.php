@@ -9,7 +9,7 @@ class del extends CI_Controller {
 		$this->load->helper('url');
 		$this->load->library('tank_auth');
 	}
-	public function post()
+	public function post()//Pobiera dane z formularza, wyświetla widok "Czy jesteś pewien?" i usuwa posta
 	{
 		$data['id']=$this->input->post('id');
 		$this->load->view('sure',$data);

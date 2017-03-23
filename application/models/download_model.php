@@ -37,7 +37,7 @@ Class download_model extends CI_Model
 		$s->result();
 		return $s;
 	}
-	public function posty($adress)
+	public function posty($adress)//pobiera posty
 	{
 		$this->db->select('id, name, authorname');
 		$this->db->where('id',$adress);
@@ -45,7 +45,7 @@ Class download_model extends CI_Model
 		$s->result();
 		return $s;
 	}
-	public function wpisy($adress)
+	public function wpisy($adress)//pobiera wpisy przypisane do danego posta
 	{
 		$this->db->select('id, addtime, authorname, text');
 		$this->db->where('postyid',$adress);
