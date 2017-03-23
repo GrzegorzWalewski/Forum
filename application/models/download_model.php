@@ -31,7 +31,7 @@ Class download_model extends CI_Model
 	}
 	public function getposts($adress)//pobiera posty przypisane do danego wątku
 	{
-		$this->db->select('id, name, authorname, actudate, odp, wys');
+		$this->db->select('id, name,SUBSTRING(tresc,1,35) as tresc, authorname, actudate, odp, wys');
 		$this->db->where('watkiid',$adress);
 		$s=$this->db->get('posty');
 		$s->result();
@@ -39,7 +39,7 @@ Class download_model extends CI_Model
 	}
 	public function posty($adress)//pobiera posty
 	{
-		$this->db->select('id, name, authorname');
+		$this->db->select('id, name,tresc, authorname');
 		$this->db->where('id',$adress);
 		$s=$this->db->get('posty');
 		$s->result();

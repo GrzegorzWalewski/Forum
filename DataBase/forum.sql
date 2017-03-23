@@ -1,3 +1,21 @@
+-- phpMyAdmin SQL Dump
+-- version 4.5.1
+-- http://www.phpmyadmin.net
+--
+-- Host: 127.0.0.1
+-- Czas generowania: 23 Mar 2017, 08:51
+-- Wersja serwera: 10.1.16-MariaDB
+-- Wersja PHP: 5.5.38
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
 --
 -- Baza danych: `forum`
 --
@@ -32,13 +50,12 @@ CREATE TABLE `author` (
 --
 
 INSERT INTO `author` (`id`, `authorname`, `authormail`, `password`, `activated`, `banned`, `ban_reason`, `new_password_key`, `new_password_requested`, `new_email`, `new_email_key`, `last_ip`, `last_login`, `created`, `modified`, `role`) VALUES
-(2, 'Grzojdaaaaaa', 'alakadazam@uuqw.kk', '$2a$08$dgthgL5DYbExXoAzUkoOr.1/SIiWPlTzZvB3WbXtdAuQhzxXs35C6', 1, 0, NULL, NULL, NULL, NULL, NULL, '::1', '2017-03-21 05:54:58', '0000-00-00 00:00:00', '2017-03-21 04:54:58', 'administrator'),
-(3, 'Grzegorz', 'grzojda@gmial.com', '$2a$08$dgthgL5DYbExXoAzUkoOr.1/SIiWPlTzZvB3WbXtdAuQhzxXs35C6', 1, 0, NULL, NULL, NULL, NULL, NULL, '::1', '2017-03-06 16:25:32', '0000-00-00 00:00:00', '2017-03-06 15:25:32', ''),
+(2, 'Grzojdaaaaaa', 'alakadazam@uuqw.kk', '$2a$08$dgthgL5DYbExXoAzUkoOr.1/SIiWPlTzZvB3WbXtdAuQhzxXs35C6', 1, 0, NULL, NULL, NULL, NULL, NULL, '::1', '2017-03-23 08:06:36', '0000-00-00 00:00:00', '2017-03-23 07:06:36', 'administrator'),
+(3, 'Grzegorz', 'grzojda@gmial.com', '$2a$08$dgthgL5DYbExXoAzUkoOr.1/SIiWPlTzZvB3WbXtdAuQhzxXs35C6', 1, 0, NULL, NULL, NULL, NULL, NULL, '::1', '2017-03-23 07:12:40', '0000-00-00 00:00:00', '2017-03-23 06:12:40', 'user'),
 (8, 'Ten LEpszy', 'jjslmsdf@gnm.pl', 'niemahasla', 1, 0, NULL, NULL, NULL, NULL, NULL, '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2017-01-23 06:07:49', ''),
 (9, 'kupa', 'grzesiu2203@gmail.com', 'itakniezgadniesz', 1, 0, NULL, NULL, NULL, NULL, NULL, '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2017-01-23 06:07:49', ''),
 (10, 'Blondynka', 'gunwo@gg.pkl', 'najlepszehaslo', 1, 0, NULL, NULL, NULL, NULL, NULL, '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2017-01-23 06:07:49', ''),
 (11, 'Burak', 'frzygam@uu1.pl', 'mizeria', 1, 0, NULL, NULL, NULL, NULL, NULL, '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2017-01-23 06:07:49', ''),
-(13, 'Blondynka', 'marianna.pomykala@vip.onet.pl', 'kochamjoo', 1, 0, NULL, NULL, NULL, NULL, NULL, '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2017-01-23 06:07:49', ''),
 (14, 'As', 'gggguhi@ggcjh.pl', 'loljuznie', 1, 0, NULL, NULL, NULL, NULL, NULL, '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2017-01-23 06:07:49', ''),
 (15, 'Grzojdatel', 'grzojda@gmail.com', '$2a$08$n5bJYHgjFbaEyD2jrSemrewH4GYyQgDl2MlT2cVw1h6/4TgfomjDK', 1, 0, NULL, NULL, NULL, NULL, '4076fc9c34d70e9855c3cdf56afadb60', '192.168.0.148', '2017-02-03 14:33:15', '2017-01-28 15:55:44', '2017-02-03 13:33:15', '');
 
@@ -64,6 +81,7 @@ CREATE TABLE `login_attempts` (
 CREATE TABLE `posty` (
   `id` int(11) NOT NULL,
   `name` text COLLATE utf8_bin NOT NULL,
+  `tresc` text CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL,
   `authorname` text COLLATE utf8_bin NOT NULL,
   `starttime` date NOT NULL,
   `actudate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'data ostatniej aktualizacji',
@@ -77,9 +95,8 @@ CREATE TABLE `posty` (
 -- Zrzut danych tabeli `posty`
 --
 
-INSERT INTO `posty` (`id`, `name`, `authorname`, `starttime`, `actudate`, `odp`, `wys`, `lastuser`, `watkiid`) VALUES
-(1, 'Głowny Regulamin', 'Grzojda', '2017-02-24', '2017-03-13 18:49:51', 0, 10, 'Grzojda', 1),
-(6, 'Regulamin Dotyczący  wątków', 'Grzojdaaaaaa', '2017-03-19', '2017-03-19 18:04:00', 0, 0, '', 1);
+INSERT INTO `posty` (`id`, `name`, `tresc`, `authorname`, `starttime`, `actudate`, `odp`, `wys`, `lastuser`, `watkiid`) VALUES
+(1, 'Regulamin', '1.Nie przeklinamy\r\n2.Nie popełniamy co chwilę błędów ortograficznych\r\nZa nie przestrzeganie któregokolwiek z punktów grozi ban!\r\nProszę o podpisywanie się, oraz opcjonalnie podpowiadanie co można opcjonalnie zmienić :D', 'Grzojda', '2017-02-24', '2017-03-23 06:55:22', 0, 10, 'Grzojda', 1);
 
 -- --------------------------------------------------------
 
@@ -132,7 +149,7 @@ CREATE TABLE `user_autologin` (
 
 INSERT INTO `user_autologin` (`key_id`, `user_id`, `user_agent`, `last_ip`, `last_login`) VALUES
 ('3b6005cec6d7f00620bf3152030ff476', 15, 'Mozilla/5.0 (Linux; U; Android 4.4.2; pl-pl; A916 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/42.0.0.0 Mobile Safari/537.', '192.168.0.148', '2017-02-03 13:33:15'),
-('b3bc0fc3f1a22a0f1558be0c644bd05f', 2, 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:52.0) Gecko/20100101 Firefox/52.0', '::1', '2017-03-21 04:54:58'),
+('69aa6761e3985cc31cad8d8f1983ac56', 2, 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:52.0) Gecko/20100101 Firefox/52.0', '::1', '2017-03-23 07:06:36'),
 ('bfb557ea6bed8b521144407293a75360', 2, 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0', '::1', '2017-01-27 08:50:55');
 
 -- --------------------------------------------------------
@@ -182,7 +199,7 @@ CREATE TABLE `wpisy` (
   `id` int(11) NOT NULL,
   `addtime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Czas dodania lub modyfikacji',
   `authorname` text NOT NULL COMMENT 'Nazwa urzytkownika',
-  `text` text NOT NULL COMMENT 'Caly tekst wpisu',
+  `text` text CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL COMMENT 'Caly tekst wpisu',
   `postyid` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='Wszystkie wpisy';
 
@@ -191,8 +208,8 @@ CREATE TABLE `wpisy` (
 --
 
 INSERT INTO `wpisy` (`id`, `addtime`, `authorname`, `text`, `postyid`) VALUES
-(1, '2017-03-13 18:49:34', 'Grzojda', 'Nie przeklinamy!', 1),
-(3, '2017-03-19 23:00:00', 'Grzojdaaaaaa', 'Prosz? o dodanie, ?e za zbyt cz?ste b??dy ortograficzne b?dzie ban', 1);
+(3, '2017-03-23 06:07:23', 'Grzojdaaaaaa', 'Proszę o dodanie, że za zbyt częste błędy ortograficzne będzie ban', 1),
+(4, '2017-03-23 06:36:44', 'Grzegorz', 'Nie zgadzam się z osobą wyżej', 1);
 
 --
 -- Indeksy dla zrzutów tabel
@@ -261,12 +278,12 @@ ALTER TABLE `author`
 -- AUTO_INCREMENT dla tabeli `login_attempts`
 --
 ALTER TABLE `login_attempts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT dla tabeli `posty`
 --
 ALTER TABLE `posty`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT dla tabeli `users`
 --
@@ -286,7 +303,7 @@ ALTER TABLE `watki`
 -- AUTO_INCREMENT dla tabeli `wpisy`
 --
 ALTER TABLE `wpisy`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- Ograniczenia dla zrzutów tabel
 --
@@ -301,7 +318,7 @@ ALTER TABLE `posty`
 -- Ograniczenia dla tabeli `wpisy`
 --
 ALTER TABLE `wpisy`
-  ADD CONSTRAINT `wpisy_ibfk_1` FOREIGN KEY (`postyid`) REFERENCES `posty` (`id`);
+  ADD CONSTRAINT `wpisy_ibfk_1` FOREIGN KEY (`postyid`) REFERENCES `posty` (`id`) ON DELETE NO ACTION;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -71,6 +71,13 @@ class index extends CI_Controller {
 		$adress=$this->uri->segment(3);
 		$data['posty']=$this->download_Model->posty($adress);
 		$data['wpisy']=$this->download_Model->wpisy($adress);
+		if($this->tank_auth->is_logged_in())
+		{
+			$this->load->model('user_Model');
+			$userid=$this->tank_auth->get_user_id();	
+			$data['role']=$this->user_Model->getrole($userid);
+			$data['username']=$this->tank_auth->get_username();
+		}
 		$this->load->view('controller',$data);
 	}
 	public function userrole()//Pobiera role użytkownika oraz wyświetla przycisk z funkcją która mu przysługuje
