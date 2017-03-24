@@ -18,6 +18,7 @@ class edit extends CI_Controller {
 	public function wpisform()//wyświetla formularz do edycji postów
 	{
 		$data['id']=$this->input->post('id');
+		$data['reid']=$this->input->post('reid');
 		$data['text']=$this->input->post('text');
 		$this->load->view('edit/editformw',$data);
 	}
@@ -28,12 +29,15 @@ class edit extends CI_Controller {
 		$id=$this->input->post('id');
 		$this->load->model('Update_Model');
 		$this->Update_Model->post($id,$name,$time);
+		redirect('/index/posty/1');	
 	}
-	public function wpis()//Pobiera dane z formularza i aktualizuje posta
+	public function wpis()//Pobiera dane z formularza i aktualizuje wpis
 	{
 		$text=$this->input->post('text');
 		$id=$this->input->post('id');
+		$reid=$this->input->post('reid');
 		$this->load->model('Update_Model');
 		$this->Update_Model->wpis($id,$text);
+		redirect("/index/posty/$reid");
 	}
 }

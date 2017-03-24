@@ -34,6 +34,7 @@ class add extends CI_Controller {
 		$important=$this->input->post('important');
 		$this->load->model('upload_Model');
 		$this->upload_Model->watek($username,$time,$name,$important);
+		redirect('/');
 	}
 	public function post()//Pobiera dane z formularza i inputuje posta w db
 	{
@@ -43,6 +44,7 @@ class add extends CI_Controller {
 		$watkiid=$this->input->post('watkiid');
 		$this->load->model('upload_Model');
 		$this->upload_Model->post($username,$time,$name,$watkiid);
+		redirect("/index/watki/$watkiid");
 	}
 	public function wpis()//Pobiera dane z formularza i inputuje wpis w db
 	{
@@ -52,5 +54,6 @@ class add extends CI_Controller {
 		$postyid=$this->input->post('postyid');
 		$this->load->model('upload_Model');
 		$this->upload_Model->wpis($authorname,$time, $text, $postyid);
+		redirect("/index/posty/$postyid");
 	}
 }

@@ -10,7 +10,7 @@
 	$attributes=array('id' => 'addform','method'=>'post');
 	echo form_open('add/wpis',$attributes);
 	echo form_hidden('authorname',$username);
-	echo form_hidden('time',date("Y-m-d"));
+	echo form_hidden('time',date("Y-m-d G:i:s"));
 	echo "Wpis:</br>";
 	echo form_textarea('text');
 	echo form_hidden('postyid',$postid);

@@ -13,6 +13,7 @@
 	echo "Wpis:</br>";
 	echo form_textarea('text',$text);
 	echo form_hidden('id',$id);
+	echo form_hidden('reid',$reid);
 	echo form_submit('submit','Edytuj Wpis');
 	echo form_close();
 ?>

@@ -122,6 +122,7 @@ function loadRole()
 					$attributes=array('id' => 'editform','method'=>'post');
 					echo form_open('edit/postform',$attributes);
 					echo form_hidden('id',$w->id);
+					echo form_hidden('reid',$id);
 					echo form_hidden('name',$w->name);
 					echo form_submit('submit','Edytuj posta');
 					echo form_close();
@@ -157,6 +158,7 @@ else if(isset($wpisy))
 			$attributes=array('id' => 'editform','method'=>'post');
 					echo form_open('edit/wpisform',$attributes);
 					echo form_hidden('id',$w->id);
+					echo form_hidden('reid',$id);
 					echo form_hidden('text',$w->text);
 					echo form_submit('submit','Edytuj');
 					echo form_close();
@@ -166,6 +168,7 @@ else if(isset($wpisy))
 					$attributes=array('id' => 'delform','method'=>'post');
 					echo form_open('del/wpis',$attributes);
 					echo form_hidden('id',$w->id);
+					echo form_hidden('reid',$id);
 					echo form_submit('submit','Usuń wpis');
 					echo form_close();
 				}
