@@ -15,13 +15,14 @@ Class upload_Model extends CI_Model
 			);
 		$this->db->insert('watki',$data);
 	}
-	public function post($username,$time,$name,$watkiid)//Dodaje posta
+	public function post($username,$time,$name,$watkiid,$tresc)//Dodaje posta
 	{
 		$data=array(
 			'name'=>$name,
 			'authorname'=>$username,
 			'starttime'=>$time,
-			'watkiid'=>$watkiid
+			'watkiid'=>$watkiid,
+			'tresc'=>$tresc
 			);
 		$this->db->insert('posty',$data);
 	}

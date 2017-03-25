@@ -13,6 +13,8 @@
 	echo form_hidden('time',date("Y-m-d"));
 	echo "Nazwa posta: ";
 	echo form_input('name');
+	echo "Treść posta: ";
+	echo form_textarea('tresc');
 	echo form_hidden('watkiid',$watkiid);
 	echo form_submit('submit','Dodaj Posta');
 	echo form_close();

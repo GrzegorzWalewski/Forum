@@ -39,11 +39,12 @@ class add extends CI_Controller {
 	public function post()//Pobiera dane z formularza i inputuje posta w db
 	{
 		$username=$this->input->post('username');
+		$tresc=$this->input->post('tresc');
 		$time=$this->input->post('time');
 		$name=$this->input->post('name');
 		$watkiid=$this->input->post('watkiid');
 		$this->load->model('upload_Model');
-		$this->upload_Model->post($username,$time,$name,$watkiid);
+		$this->upload_Model->post($username,$time,$name,$watkiid,$tresc);
 		redirect("/index/watki/$watkiid");
 	}
 	public function wpis()//Pobiera dane z formularza i inputuje wpis w db
