@@ -6,8 +6,10 @@
 <link type="text/css" rel="stylesheet" href="<?php echo base_url()."assets/css/style.css";?>"/>
 <script type="text/javascript" src="<?php echo base_url()."assets/js/controller.js";?>"></script>
 </head>
-<body onload="loadDoc(); loadRole(); <?php if(!isset($watki)&&!isset($posty)){echo "loadPrimary();";}?> loadNewer();">
+<body onload="loadDoc(); loadRole(); loadNewer(); <?php if(!isset($watki)&&!isset($posty)){echo "loadPrimary();";}?>">
 <div id="who">
+</div>
+<div id="userbuttons">
 </div>
 <table>
 	<tr>
@@ -16,8 +18,6 @@
 		<td><a href="forum/regulamin">Kontakt</a></td>
 	</tr>
 </table>
-<div id="userbuttons">
-</div>
 <div id="primary"></div>
 <div id="newer">
 </div>
