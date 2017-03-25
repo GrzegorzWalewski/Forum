@@ -3,63 +3,8 @@
 <head>
 <meta cherset="utf-8">
 <title>NajlepszeForum</title>
-<script type="text/javascript">
-function loadDoc()
-{
-	var xhttp=new XMLHttpRequest();
-	xhttp.onreadystatechange=function()
-	{
-		if(this.readyState==4 && this.status==200)
-		{
-			document.getElementById("who").innerHTML=this.responseText;
-		}
-	}
-	xhttp.open("GET","/default/index/who",true);
-	xhttp.send();
-	setTimeout("loadDoc()",1000);
-}
-function loadPrimary()
-{
-	var xhttp=new XMLHttpRequest();
-	xhttp.onreadystatechange=function()
-	{
-		if(this.readyState==4 && this.status==200)
-		{
-			document.getElementById("primary").innerHTML=this.responseText;
-		}
-	}
-	xhttp.open("GET","/default/index/primary",true);
-	xhttp.send();
-}
-function loadNewer()
-{
-	var xhttp=new XMLHttpRequest();
-	xhttp.onreadystatechange=function()
-	{
-		if(this.readyState==4 && this.status==200)
-		{
-			document.getElementById("newer").innerHTML=this.responseText;
-		}
-	}
-	xhttp.open("GET","/default/index/newer",true);
-	xhttp.send();
-	setTimeout("loadNewer()",1000);
-}
-function loadRole()
-{
-	var xhttp=new XMLHttpRequest();
-	xhttp.onreadystatechange=function()
-	{
-		if(this.readyState==4 && this.status==200)
-		{
-			document.getElementById("userbuttons").innerHTML=this.responseText;
-		}
-	}
-	xhttp.open("GET","/default/index/userrole<?php if(isset($watek)&&!isset($wpisy)){echo "/watek/";}if(isset($posty)&&!isset($wpisy)){echo "/posty/".$id;}if(isset($wpisy)){echo "/wpisy/".$id;} ?>",true);
-	xhttp.send();
-	setTimeout("loadRole()",1000);
-}
-</script>
+<link type="text/css" rel="stylesheet" href="<?php echo base_url()."assets/css/style.css";?>"/>
+<script type="text/javascript" src="<?php echo base_url()."assets/js/controller.js";?>"></script>
 </head>
 <body onload="loadDoc(); loadRole(); <?php if(!isset($watki)&&!isset($posty)){echo "loadPrimary();";}?> loadNewer();">
 <div id="who">
