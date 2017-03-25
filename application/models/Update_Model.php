@@ -20,4 +20,10 @@ Class Update_Model extends CI_Model
 		$this->db->where('id', $id);
 		$this->db->update('wpisy');
 	}
+		public function wys($adress)//Updatuje post
+	{
+		$this->db->set('wys','wys+1',FALSE);
+		$this->db->where('id', $adress);
+		$this->db->update('posty');
+	}
 }

@@ -12,8 +12,12 @@ Class delete_Model extends CI_Model
 			$this->db->where('postyid',$id);
 			$this->db->delete('wpisy');
 		}
-		public function wpis($id)//Usuwa wybranego posta i wszystkie przypisane do niego wpisy
+		public function wpis($id,$reid)//Usuwa wybrany wpis i odejmuje 1 odp przy wyświetlaniu postów
 		{
+			$this->db->set('odp','odp-1',FALSE);
+			$this->db->where('id', $reid);
+			$this->db->update('posty');
+
 			$this->db->where('id',$id);
 			$this->db->delete('wpisy');
 		}

@@ -97,6 +97,7 @@ function loadRole()
 			echo "<table>
 			<tr>
 			<th>Nazwa posta </th>
+			<th>Tresc: </th>
 			<th>Autor posta </th>
 			<th>Data ostatniej aktualizacji</th>
 		 	<th>Odpowiedzi </th>
@@ -133,8 +134,7 @@ function loadRole()
 else if(isset($wpisy))
 {
 	foreach($posty->result() as $w)
-	{
-			echo "<a href=\"/default/index.php/index/watki/$w->watkiid/\">Wróć</a></td>";
+	{;
 		 echo "<table>
 			<tr>
 			<th>Nazwa posta </th>

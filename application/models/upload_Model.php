@@ -35,6 +35,10 @@ Class upload_Model extends CI_Model
 			'postyid'=>$postyid
 			);
 		$this->db->insert('wpisy',$data);
+
+		$this->db->set('odp','odp+1',FALSE);
+		$this->db->where('id', $postyid);
+		$this->db->update('posty');
 	}
 }
 

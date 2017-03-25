@@ -66,7 +66,6 @@ class index extends CI_Controller {
 	public function posty()//Pobiera posty i wpisy ,przekazuje do widoku
 	{
 		$this->load->model('download_Model');
-		$data['id']=$this->uri->segment(3);
 		$data['username']=$this->tank_auth->get_username();
 		$adress=$this->uri->segment(3);
 		$data['posty']=$this->download_Model->posty($adress);
@@ -79,6 +78,8 @@ class index extends CI_Controller {
 			$data['username']=$this->tank_auth->get_username();
 		}
 		$data['id']=$this->uri->segment(3);
+		$this->load->model('update_Model');
+		$this->update_Model->wys($adress);
 		$this->load->view('controller',$data);
 	}
 	public function userrole()//Pobiera role użytkownika oraz wyświetla przycisk z funkcją która mu przysługuje

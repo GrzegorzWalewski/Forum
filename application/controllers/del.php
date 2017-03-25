@@ -41,7 +41,7 @@ class del extends CI_Controller {
 		if($sure=="Tak")
 		{
 			$this->load->model('delete_Model');
-			$this->delete_Model->wpis($id);
+			$this->delete_Model->wpis($id,$reid);
 			redirect("/index/posty/$reid");
 		}
 		else if($sure=="Nie")
