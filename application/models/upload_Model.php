@@ -25,6 +25,9 @@ Class upload_Model extends CI_Model
 			'tresc'=>$tresc
 			);
 		$this->db->insert('posty',$data);
+		$this->db->set('posts','posts+1',FALSE);
+		$this->db->where('id', $watkiid);
+		$this->db->update('watki');
 	}
 	public function wpis($authorname,$time, $text, $postyid)//Dodaje wpis
 	{

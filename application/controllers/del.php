@@ -21,7 +21,7 @@ class del extends CI_Controller {
 		if($sure=="Tak")
 		{
 			$this->load->model('delete_Model');
-			$this->delete_Model->post($id);
+			$this->delete_Model->post($id,$reid);
 			redirect("/index/watki/$reid");
 		}
 		else if($sure=="Nie")
