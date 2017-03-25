@@ -39,7 +39,7 @@ Class download_model extends CI_Model
 	}
 	public function posty($adress)//pobiera posty
 	{
-		$this->db->select('id, name,tresc, authorname');
+		$this->db->select('id, name,tresc, authorname, watkiid');
 		$this->db->where('id',$adress);
 		$s=$this->db->get('posty');
 		$s->result();

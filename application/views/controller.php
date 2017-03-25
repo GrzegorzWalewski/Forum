@@ -127,14 +127,14 @@ function loadRole()
 					echo form_submit('submit','Edytuj posta');
 					echo form_close();
 				}	
-			
-
 		}
+		echo "<a href=\"/default/\">Wróć</a></td>";
 	}
 else if(isset($wpisy))
 {
 	foreach($posty->result() as $w)
 	{
+			echo "<a href=\"/default/index.php/index/watki/$w->watkiid/\">Wróć</a></td>";
 		 echo "<table>
 			<tr>
 			<th>Nazwa posta </th>
@@ -173,6 +173,10 @@ else if(isset($wpisy))
 					echo form_close();
 				}
 	}
+		foreach($posty->result() as $w)
+		{
+			echo "<a href=\"/default/index.php/index/watki/$w->watkiid/\">Wróć</a></td>";
+		}
 }
 ?>
 </body>

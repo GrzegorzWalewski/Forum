@@ -32,9 +32,9 @@ class index extends CI_Controller {
 			$data['username']=$this->tank_auth->get_username();
 		}
 		$adress=$this->uri->segment(3);
-		$data['id']=$this->uri->segment(3);
 		$data['watek']=$this->download_Model->getwatek($adress);
 		$data['posty']=$this->download_Model->getposts($adress);
+		$data['id']=$this->uri->segment(3);
 		$this->load->view('controller',$data);
 	}
 	public function primary()//Pobiera i przekazuje do widoku ważne wątki
@@ -78,6 +78,7 @@ class index extends CI_Controller {
 			$data['role']=$this->user_Model->getrole($userid);
 			$data['username']=$this->tank_auth->get_username();
 		}
+		$data['id']=$this->uri->segment(3);
 		$this->load->view('controller',$data);
 	}
 	public function userrole()//Pobiera role użytkownika oraz wyświetla przycisk z funkcją która mu przysługuje
