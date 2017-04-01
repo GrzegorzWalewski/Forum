@@ -22,7 +22,7 @@ function loadRole()
 			document.getElementById("userbuttons").innerHTML=this.responseText;
 		}
 	}
-	xhttp.open("GET","/default/index/userrole<?php if(isset($watek)&&!isset($wpisy)){echo "/watek/";}if(isset($posty)&&!isset($wpisy)){echo "/posty/".$id;}if(isset($wpisy)){echo "/wpisy/".$id;} ?>",true);
+	xhttp.open("GET","/default/index/userrole",true);
 	xhttp.send();
 	setTimeout("loadRole()",1000);
 }
