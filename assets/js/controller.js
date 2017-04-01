@@ -1,6 +1,10 @@
 var base_url = '';
+var role_url = '';
 document.addEventListener('DOMContentLoaded', function(){ 
     base_url = document.head.querySelector("[name=base_url]").content;
+}, false);
+document.addEventListener('DOMContentLoaded', function(){ 
+    role_url = document.head.querySelector("[name=role_url]").content;
 }, false);
 function loadDoc()
 {
@@ -26,7 +30,7 @@ function loadRole()
 			document.getElementById("userbuttons").innerHTML=this.responseText;
 		}
 	}
-	xhttp.open("GET",base_url+"/index/userrole",true);
+	xhttp.open("GET",base_url+"/index/userrole"+role_url,true);
 	xhttp.send();
 	setTimeout("loadRole()",1000);
 }

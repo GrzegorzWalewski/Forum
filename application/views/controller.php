@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="base_url" content="<?php echo base_url() ?>" >
+<meta name="role_url" content="<?php if(isset($watek)&&!isset($wpisy)){echo "/watek/";}if(isset($posty)&&!isset($wpisy)){echo "/posty/".$id;}if(isset($wpisy)){echo "/wpisy/".$id;} ?>" >
 <title>NajlepszeForum</title>
 <link type="text/css" rel="stylesheet" href="<?php echo base_url()."assets/css/style.css";?>"/>
 <script type="text/javascript" src="<?php echo base_url()."assets/js/controller.js";?>"></script>
