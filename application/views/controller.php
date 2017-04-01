@@ -15,9 +15,8 @@
 </div>
 <table>
 	<tr>
-		<td><a href="forum/regulamin">Regulamin</a></td>
-		<td><a href="forum/regulamin">Najnowsze</a></td>
-		<td><a href="forum/regulamin">Kontakt</a></td>
+		<td><a href="<?php echo base_url()?>regulamin">Regulamin</a></td>
+		<td><a href="<?php echo base_url()?>kontakt">Kontakt</a></td>
 	</tr>
 </table>
 <div id="primary"></div>
@@ -51,7 +50,7 @@
 		   	<th>Wyświetleń </th>
 		   	</tr>
 		  	<tr>
-		   	<td><a href=/default/index/posty/".$w->id.">".$w->name."</a></td>
+		   	<td><a href=".base_url()."index/posty/".$w->id.">".$w->name."</a></td>
 		   	<td>".$w->tresc."...</td>
 			<td>".$w->authorname."</td>
 			<td>".$w->actudate."</td>
@@ -76,7 +75,7 @@
 					echo form_close();
 				}	
 		}
-		echo "<a href=\"/default/\">Wróć</a></td>";
+		echo "<a href=".base_url().">Wróć</a></td>";
 	}
 else if(isset($wpisy))
 {
@@ -122,7 +121,7 @@ else if(isset($wpisy))
 	}
 		foreach($posty->result() as $w)
 		{
-			echo "<a href=\"/default/index.php/index/watki/$w->watkiid/\">Wróć</a></td>";
+			echo "<a href=".base_url()."/index/watki/$w->watkiid/>Wróć</a></td>";
 		}
 }
 ?>

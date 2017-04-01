@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function(){
 document.addEventListener('DOMContentLoaded', function(){ 
     role_url = document.head.querySelector("[name=role_url]").content;
 }, false);
-function loadDoc()
+function loadDoc() //funkcja odpowiadająca za załadowanie widoku guest/profil
 {
 	var xhttp=new XMLHttpRequest();
 	xhttp.onreadystatechange=function()
@@ -20,7 +20,7 @@ function loadDoc()
 	xhttp.send();
 	setTimeout("loadDoc()",1000);
 }
-function loadRole()
+function loadRole()//Wyświetla link do dodawanie(zależnie od roli i podstrony)
 {
 	var xhttp=new XMLHttpRequest();
 	xhttp.onreadystatechange=function()
@@ -34,7 +34,7 @@ function loadRole()
 	xhttp.send();
 	setTimeout("loadRole()",1000);
 }
-function loadNewer()
+function loadNewer()//Ładuje najnowsze wątki
 {
 	var xhttp=new XMLHttpRequest();
 	xhttp.onreadystatechange=function()
@@ -48,7 +48,7 @@ function loadNewer()
 	xhttp.send();
 	setTimeout("loadNewer()",1000);
 }
-function loadPrimary()
+function loadPrimary()//Ładuje najważniejsze wątki
 {
 	var xhttp=new XMLHttpRequest();
 	xhttp.onreadystatechange=function()
