@@ -1,3 +1,7 @@
+var base_url = '';
+document.addEventListener('DOMContentLoaded', function(){ 
+    base_url = document.head.querySelector("[name=base_url]").content;
+}, false);
 function loadDoc()
 {
 	var xhttp=new XMLHttpRequest();
@@ -8,7 +12,7 @@ function loadDoc()
 			document.getElementById("who").innerHTML=this.responseText;
 		}
 	}
-	xhttp.open("GET","/default/index/who",true);
+	xhttp.open("GET",base_url+"/index/who",true);
 	xhttp.send();
 	setTimeout("loadDoc()",1000);
 }
@@ -22,7 +26,7 @@ function loadRole()
 			document.getElementById("userbuttons").innerHTML=this.responseText;
 		}
 	}
-	xhttp.open("GET","/default/index/userrole",true);
+	xhttp.open("GET",base_url+"/index/userrole",true);
 	xhttp.send();
 	setTimeout("loadRole()",1000);
 }
@@ -36,7 +40,7 @@ function loadNewer()
 			document.getElementById("newer").innerHTML=this.responseText;
 		}
 	}
-	xhttp.open("GET","/default/index/newer",true);
+	xhttp.open("GET",base_url+"/index/newer",true);
 	xhttp.send();
 	setTimeout("loadNewer()",1000);
 }
@@ -50,6 +54,6 @@ function loadPrimary()
 			document.getElementById("primary").innerHTML=this.responseText;
 		}
 	}
-	xhttp.open("GET","/default/index/primary",true);
+	xhttp.open("GET",base_url+"/index/primary",true);
 	xhttp.send();
 }
