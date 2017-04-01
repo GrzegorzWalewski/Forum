@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class del extends CI_Controller {
+class Del extends CI_Controller {
 	function __construct()
 	{
 		parent::__construct();
