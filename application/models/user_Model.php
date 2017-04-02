@@ -28,4 +28,26 @@ Class user_Model extends CI_Model
 		$this->db->where('id',$id);
 		$this->db->update('author');
 	}
+	public function lastwatki($username)
+	{
+		$this->db->select('name, id, posts');
+		$this->db->where('authorname',$username);
+		$s=$this->db->get('watki');
+		return $s;
+	}
+	public function lastposty($username)
+	{
+		$this->db->select('name, id');
+		$this->db->where('authorname',$username);
+		$s=$this->db->get('posty');
+		return $s;
+	}
+		public function lastwpisy($username)
+	{
+		$this->db->select('text, id, postyid');
+		$this->db->where('authorname',$username);
+		$s=$this->db->get('wpisy');
+		return $s;
+	}
+
 }

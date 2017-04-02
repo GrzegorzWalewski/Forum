@@ -75,5 +75,12 @@ else
 <?php endforeach; ?>
 </tr>
 </table>
+<h4>Ostatnia aktywność</h4>
+<?php
+	foreach($lawatki->result() as $w)
+	{
+		echo $w->name;
+	}
+?>
 </body>
 </html>

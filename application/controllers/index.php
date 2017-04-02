@@ -110,10 +110,16 @@ class Index extends CI_Controller {
 		{
 			$username=$this->tank_auth->get_username();
 			$data['userinfo']=$this->user_Model->getinfo($username);
+			$data['lawatki']=$this->user_Model->lastwatki($username);
+			$data['laposty']=$this->user_Model->lastposty($username);
+			$data['lawpisy']=$this->user_Model->lastwpisy($username);
 			$this->load->view('Profili',$data);
 		}
 		else
 		{
+		$data['lawatki']=$this->user_Model->lastwatki($username);
+		$data['laposty']=$this->user_Model->lastposty($username);
+		$data['lawpisy']=$this->user_Model->lastwpisy($username);
 		$data['userinfo']=$this->user_Model->getinfo($username);
 		$this->load->view('Profili',$data);
 		}
