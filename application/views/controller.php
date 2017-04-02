@@ -9,6 +9,24 @@
 <script type="text/javascript" src="<?php echo base_url()."assets/js/controller.js";?>"></script>
 </head>
 <body onload="loadDoc(); loadRole(); loadNewer(); <?php if(!isset($watki)&&!isset($posty)){echo "loadPrimary();";}?>">
+<div id="search">
+Wyszukaj
+<?php
+	$attributes=array('id' => 'search','method'=>'get');
+	echo form_open('index/search',$attributes);
+	echo form_input('search');
+	echo "Chciałbym wyszukać: ";
+	$options=array(
+		'users'=>"Urzytkowników",
+		'watki'=>"Wątków",
+		'posts'=>"Postów",
+		'wpisy'=>"Wpisów"
+		);
+	echo form_dropdown('category',$options);
+	echo form_submit('submit','Wyszukaj');
+	echo form_close();
+?>
+</div>
 <div id="who">
 </div>
 <div id="userbuttons">

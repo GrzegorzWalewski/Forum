@@ -53,6 +53,36 @@ Class download_model extends CI_Model
 		$s->result();
 		return $s;
 	}
+	public function searchus($us)//pobiera wyniki wyszukiwania w kategorii urzytkownicy
+	{
+		$this->db->select('authorname, id');
+		$this->db->like('authorname',$us);
+		$this->db->or_like('authormail',$us);
+		$s=$this->db->get('author');
+		return $s;
+	}
+	public function searchwa($wa)//pobiera wyniki wyszukiwania w kategorii wątki
+	{
+		$this->db->select('name, id, posts');
+		$this->db->like('name',$wa);
+		$s=$this->db->get('watki');
+		return $s;
+	}
+	public function searchpo($po)//pobiera wyniki wyszukiwania w kategorii posty
+	{
+		$this->db->select('name, id');
+		$this->db->like('name',$po);
+		$this->db->or_like('tresc',$po);
+		$s=$this->db->get('posty');
+		return $s;
+	}
+	public function searchwp($wp)//pobiera wyniki wyszukiwania w kategorii wpisy
+	{
+		$this->db->select('text, id, postyid');
+		$this->db->like('text',$wp);
+		$s=$this->db->get('wpisy');
+		return $s;
+	}
 }
 
 ?>

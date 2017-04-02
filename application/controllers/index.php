@@ -118,4 +118,26 @@ class Index extends CI_Controller {
 		$this->load->view('Profili',$data);
 		}
 	}
+	public function search()
+	{
+		$search=$this->input->get('search');
+		$where=$this->input->get('category');
+		$this->load->model('download_Model');
+		switch($where)
+		{
+			case "users":
+				$data['result']=$this->download_Model->searchus($search);
+			break;
+			case "watki":
+				$data['result']=$this->download_Model->searchwa($search);
+			break;
+			case "posts":
+				$data['result']=$this->download_Model->searchpo($search);
+			break;
+			case "wpisy":
+				$data['result']=$this->download_Model->searchwp($search);
+			break;
+		}
+		$this->load->view('search',$data);
+	}
 }
