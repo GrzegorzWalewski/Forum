@@ -76,11 +76,32 @@ else
 </tr>
 </table>
 <h4>Ostatnia aktywność</h4>
+<div id="watkic">
 <?php
 	foreach($lawatki->result() as $w)
 	{
-		echo $w->name;
+		echo "Wątki</br>";
+		echo "<a href=".base_url()."index.php/index/watki/".$w->id.">".$w->name."</a></br>";
 	}
 ?>
+</div>
+<div id="postyc">
+Posty</br>
+<?php
+	foreach($laposty->result() as $w)
+	{
+		echo "<a href=".base_url()."/index/posty/".$w->id.">".$w->name."</a></br>";
+	}
+?>
+</div>
+<div id="wpisyc">
+Wpisy</br>
+<?php
+	foreach($lawpisy->result() as $w)
+	{
+		echo "<a href=".base_url()."/index/posty/".$w->postyid.">".$w->text."</a></br>";
+	}
+?>
+</div>
 </body>
 </html>
