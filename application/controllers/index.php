@@ -101,4 +101,21 @@ class Index extends CI_Controller {
 			$this->load->view('rolebutton',$data);
 		}
 	}
+	public function userprofil()
+	{
+		$this->load->model('user_Model');
+		$data['username']=$this->tank_auth->get_username();
+		$username=$this->uri->segment(3);
+		if($username=="")
+		{
+			$username=$this->tank_auth->get_username();
+			$data['userinfo']=$this->user_Model->getinfo($username);
+			$this->load->view('Profili',$data);
+		}
+		else
+		{
+		$data['userinfo']=$this->user_Model->getinfo($username);
+		$this->load->view('Profili',$data);
+		}
+	}
 }

@@ -14,4 +14,12 @@ Class user_Model extends CI_Model
 		$d=$r->role;
 		return $d;
 	}
+	public function getinfo($username)
+	{
+		$this->db->select('authorname, description, authormail, last_login, created');
+		$this->db->where('authorname',$username);
+		$s=$this->db->get('author');
+		$s->result();
+		return $s;
+	}
 }
