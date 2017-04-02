@@ -57,4 +57,12 @@ class Add extends CI_Controller {
 		$this->upload_Model->wpis($authorname,$time, $text, $postyid);
 		redirect("/index/posty/$postyid");
 	}
+	public function opis()
+	{	
+		$opis=$this->input->post('opis');
+		$userid=$this->tank_auth->get_user_id();
+		$this->load->model('user_Model');
+		$this->user_Model->addopis($userid,$opis);
+		redirect(base_url().'/index/userprofil/');
+	}
 }

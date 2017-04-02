@@ -140,4 +140,8 @@ class Index extends CI_Controller {
 		}
 		$this->load->view('search',$data);
 	}
+	public function addopis()
+	{
+		$this->load->view('add/addopis');
+	}
 }

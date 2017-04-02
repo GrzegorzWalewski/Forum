@@ -22,4 +22,10 @@ Class user_Model extends CI_Model
 		$s->result();
 		return $s;
 	}
+	public function addopis($id, $opis)
+	{
+		$this->db->set('description',$opis);
+		$this->db->where('id',$id);
+		$this->db->update('author');
+	}
 }
