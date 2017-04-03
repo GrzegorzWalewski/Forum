@@ -77,29 +77,50 @@ else
 </table>
 <h4>Ostatnia aktywność</h4>
 <div id="watkic">
+Wątki</br>
 <?php
-	foreach($lawatki->result() as $w)
+	if(!empty(array_filter($lawatki->result())))
 	{
-		echo "Wątki</br>";
-		echo "<a href=".base_url()."index.php/index/watki/".$w->id.">".$w->name."</a></br>";
+		foreach($lawatki->result() as $w)
+		{
+			echo "<a href=".base_url()."index.php/index/watki/".$w->id.">".$w->name."</a></br>";
+		}
+	}
+	else
+	{
+		echo "Brak zawartości!";
 	}
 ?>
 </div>
 <div id="postyc">
 Posty</br>
 <?php
-	foreach($laposty->result() as $w)
+	if(!empty(array_filter($laposty->result())))
 	{
+		foreach($laposty->result() as $w)
+		{
 		echo "<a href=".base_url()."/index/posty/".$w->id.">".$w->name."</a></br>";
+		}
+	}
+	else
+	{
+		echo "Brak zawartości!";
 	}
 ?>
 </div>
 <div id="wpisyc">
 Wpisy</br>
 <?php
-	foreach($lawpisy->result() as $w)
+	if(!empty(array_filter($lawpisy->result())))
 	{
+		foreach($lawpisy->result() as $w)
+		{
 		echo "<a href=".base_url()."/index/posty/".$w->postyid.">".$w->text."</a></br>";
+		}
+	}
+	else
+	{
+		echo "Brak zawartości!";
 	}
 ?>
 </div>
