@@ -26,7 +26,6 @@ Wyszukaj
 	echo form_submit('submit','Wyszukaj');
 	echo form_close();
 ?>
-</div>
 <div id="who">
 </div>
 <div id="userbuttons">
@@ -139,7 +138,7 @@ else if(isset($wpisy))
 	}
 		foreach($posty->result() as $w)
 		{
-			echo "<a href=".base_url()."/index/watki/$w->watkiid/>Wróć</a></td>";
+			echo "<a href=".base_url()."index/watki/$w->watkiid/>Wróć</a></td>";
 		}
 }
 ?>

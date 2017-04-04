@@ -150,4 +150,13 @@ class Index extends CI_Controller {
 	{
 		$this->load->view('add/addopis');
 	}
+	public function sendmes()
+	{
+		
+		$username=$this->tank_auth->get_username();
+		$this->load->model("user_Model");
+		$data['messages']=$this->user_Model->getmessages($username);
+		$this->load->view('messages',$data);
+			
+	}
 }

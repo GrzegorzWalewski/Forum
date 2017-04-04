@@ -49,5 +49,11 @@ Class user_Model extends CI_Model
 		$s=$this->db->get('wpisy');
 		return $s;
 	}
+	public function getmessages($username)
+	{
+		$this->db->where('messto',$username);
+		$s=$this->db->get('messages');
+		return $s;
+	}
 
 }
