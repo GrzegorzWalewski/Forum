@@ -11,7 +11,6 @@ class Index extends CI_Controller {
 	}
 	public function index()
 	{
-		//$this->load->view('search');	
 		if ($this->input->get('addpost',TRUE))
 		{
 			if(!$this->tank_auth->is_logged_in())
@@ -149,14 +148,5 @@ class Index extends CI_Controller {
 	public function addopis()
 	{
 		$this->load->view('add/addopis');
-	}
-	public function sendmes()
-	{
-		
-		$username=$this->tank_auth->get_username();
-		$this->load->model("user_Model");
-		$data['messages']=$this->user_Model->getmessages($username);
-		$this->load->view('messages',$data);
-			
 	}
 }

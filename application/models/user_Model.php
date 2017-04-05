@@ -55,5 +55,22 @@ Class user_Model extends CI_Model
 		$s=$this->db->get('messages');
 		return $s;
 	}
+	public function gettresc($id,$username)
+	{
+		$this->db->where('messto',$username);
+		$this->db->where('id',$id);
+		$s=$this->db->get('messages');
+		return $s;
+	}
+	public function send($to,$from,$title,$tresc)
+	{
+		$array=array(
+			'messto'=>$to,
+			'messfrom'=>$from,
+			'title'=>$title,
+			'tresc'=>$tresc
+			);
+		$this->db->insert('messages', $array);
+	}
 
 }

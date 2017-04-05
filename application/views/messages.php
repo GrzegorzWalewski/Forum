@@ -16,11 +16,12 @@ if(!empty(array_filter($messages->result())))
 		foreach($messages->result() as $w)
 		{
 			echo"<tr><td>";
-			echo "<a href=".base_url()."message/gettresc>".$w->title."</a>";
+			echo "<a href=".base_url()."message/gettresc/".$w->id.">".$w->title."</a>";
 			echo"</td><td>";
 			echo $w->messfrom;
 			echo"</td><td>";
 			echo $w->sendtime;
+			echo"</tr></table>";
 		}
 	}
 else
