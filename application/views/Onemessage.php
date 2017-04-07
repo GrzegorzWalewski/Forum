@@ -18,11 +18,12 @@ if(!empty(array_filter($message->result())))
 			echo "<tr><td>";
 			echo $w->title;
 			echo "</td><td>";
-			echo "<a href=".base_url()."message/sendform/".$w->messfrom.">".$w->messfrom."</a>";
+			echo $w->messfrom;
 			echo "</td><td>";
 			echo $w->sendtime;
 			echo "</tr></table>";
-			echo $w->tresc;
+			echo $w->tresc." ";
+			echo "<a href=".base_url()."message/replyform/".$w->messfrom.">Odpowiedz</a>";
 		}
 	}
 else
