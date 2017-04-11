@@ -5,11 +5,12 @@
 <title>Wiadomość</title>
 </head>
 <body>
-<h1>Odpowiedz na wiadomość</h1>
+<h1>Wyślij wiadomość</h1>
 <?php
 	$attributes=array('id' => 'sendform','method'=>'post');
 	echo form_open('Message/reply',$attributes);
-	echo form_hidden('to',$to);
+	echo "Do: ";
+	echo form_input('to');
 	echo "Tytuł wiadomości: ";
 	echo form_input('title');
 	echo "Treść wiadomości: ";
@@ -18,6 +19,6 @@
 	echo form_submit('submit','Wyślij');
 	echo form_close();
 ?>
-
+<a href="<?php echo base_url() ?>message">Wróć</a>
 </body>
 </html>

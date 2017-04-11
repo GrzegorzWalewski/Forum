@@ -40,4 +40,10 @@ public function getmessages($username)
 		$this->db->where('id',$id);
 		$this->db->delete('messages');
 	}
+	public function getusers()
+	{
+		$this->db->select('username');
+		$s=$this->db->get('author');
+		return $s;
+	}
 }

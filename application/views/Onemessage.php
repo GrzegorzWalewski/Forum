@@ -31,5 +31,6 @@ else
 		echo"Wystąpił błąd";
 	}
 ?>
+<a href="<?php echo base_url() ?>message">Wróć</a>
 </body>
 </html>

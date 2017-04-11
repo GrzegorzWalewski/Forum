@@ -18,6 +18,6 @@
 	echo form_submit('submit','Wyślij');
 	echo form_close();
 ?>
-
+<a href="<?php echo base_url() ?>message">Wróć</a>
 </body>
 </html>

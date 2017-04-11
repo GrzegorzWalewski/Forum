@@ -43,6 +43,12 @@ class Message extends CI_Controller {
 	{
 		$id=$this->uri->segment(3);
 		$this->Message_Model->delete($id);
-		redirect(base_url().'/message');
+		redirect(base_url().'message');
+	}
+	public function sendform()
+	{
+		$data['from']=$this->tank_auth->get_username();
+		//$data['usernames']=$this->Message_Model->getusers(); W późniejszym czasie podczas wpisywania pojawią się pospowiedzi
+		$this->load->view('sendform',$data);
 	}
 }
