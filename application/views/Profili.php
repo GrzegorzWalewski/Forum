@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
+<link type="text/css" rel="stylesheet" href="<?php echo base_url()."assets/css/style.css";?>"/>
 </head>
 <body>
 <?php foreach($userinfo->result() as $w): ?>
@@ -75,9 +76,9 @@ else
 <?php endforeach; ?>
 </tr>
 </table>
-<h4>Ostatnia aktywność</h4>
+<h3>Ostatnia aktywność</h3>
 <div id="watkic">
-Wątki</br>
+<h4>Wątki</h4>
 <?php
 	if(!empty(array_filter($lawatki->result())))
 	{
@@ -93,7 +94,7 @@ Wątki</br>
 ?>
 </div>
 <div id="postyc">
-Posty</br>
+<h4>Posty</h4>
 <?php
 	if(!empty(array_filter($laposty->result())))
 	{
@@ -109,7 +110,7 @@ Posty</br>
 ?>
 </div>
 <div id="wpisyc">
-Wpisy</br>
+<h4>Wpisy</h4>
 <?php
 	if(!empty(array_filter($lawpisy->result())))
 	{

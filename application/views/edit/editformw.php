@@ -3,6 +3,7 @@
 <head>
 <meta cherset="utf-8">
 <title>Edytowanie Wpisu</title>
+<link type="text/css" rel="stylesheet" href="<?php echo base_url()."assets/css/style.css";?>"/>
 </head>
 <body>
 <h1>Edytuj wpis</h1>

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
+<link type="text/css" rel="stylesheet" href="<?php echo base_url()."assets/css/style.css";?>"/>
 <meta cherset="utf-8">
 <title>Edytowanie Posta</title>
 </head>
