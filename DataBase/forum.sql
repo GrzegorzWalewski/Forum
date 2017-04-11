@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Czas generowania: 23 Mar 2017, 08:51
+-- Czas generowania: 11 Kwi 2017, 21:14
 -- Wersja serwera: 10.1.16-MariaDB
 -- Wersja PHP: 5.5.38
 
@@ -42,22 +42,37 @@ CREATE TABLE `author` (
   `last_login` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `created` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `role` text CHARACTER SET utf8 COLLATE utf8_bin NOT NULL COMMENT 'Rola urzytkownika'
+  `role` text CHARACTER SET utf8 COLLATE utf8_bin NOT NULL COMMENT 'Rola urzytkownika',
+  `description` text CHARACTER SET utf8 COLLATE utf8_polish_ci COMMENT 'Opis'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Zrzut danych tabeli `author`
 --
 
-INSERT INTO `author` (`id`, `authorname`, `authormail`, `password`, `activated`, `banned`, `ban_reason`, `new_password_key`, `new_password_requested`, `new_email`, `new_email_key`, `last_ip`, `last_login`, `created`, `modified`, `role`) VALUES
-(2, 'Grzojdaaaaaa', 'alakadazam@uuqw.kk', '$2a$08$dgthgL5DYbExXoAzUkoOr.1/SIiWPlTzZvB3WbXtdAuQhzxXs35C6', 1, 0, NULL, NULL, NULL, NULL, NULL, '::1', '2017-03-23 08:06:36', '0000-00-00 00:00:00', '2017-03-23 07:06:36', 'administrator'),
-(3, 'Grzegorz', 'grzojda@gmial.com', '$2a$08$dgthgL5DYbExXoAzUkoOr.1/SIiWPlTzZvB3WbXtdAuQhzxXs35C6', 1, 0, NULL, NULL, NULL, NULL, NULL, '::1', '2017-03-23 07:12:40', '0000-00-00 00:00:00', '2017-03-23 06:12:40', 'user'),
-(8, 'Ten LEpszy', 'jjslmsdf@gnm.pl', 'niemahasla', 1, 0, NULL, NULL, NULL, NULL, NULL, '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2017-01-23 06:07:49', ''),
-(9, 'kupa', 'grzesiu2203@gmail.com', 'itakniezgadniesz', 1, 0, NULL, NULL, NULL, NULL, NULL, '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2017-01-23 06:07:49', ''),
-(10, 'Blondynka', 'gunwo@gg.pkl', 'najlepszehaslo', 1, 0, NULL, NULL, NULL, NULL, NULL, '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2017-01-23 06:07:49', ''),
-(11, 'Burak', 'frzygam@uu1.pl', 'mizeria', 1, 0, NULL, NULL, NULL, NULL, NULL, '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2017-01-23 06:07:49', ''),
-(14, 'As', 'gggguhi@ggcjh.pl', 'loljuznie', 1, 0, NULL, NULL, NULL, NULL, NULL, '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2017-01-23 06:07:49', ''),
-(15, 'Grzojdatel', 'grzojda@gmail.com', '$2a$08$n5bJYHgjFbaEyD2jrSemrewH4GYyQgDl2MlT2cVw1h6/4TgfomjDK', 1, 0, NULL, NULL, NULL, NULL, '4076fc9c34d70e9855c3cdf56afadb60', '192.168.0.148', '2017-02-03 14:33:15', '2017-01-28 15:55:44', '2017-02-03 13:33:15', '');
+INSERT INTO `author` (`id`, `authorname`, `authormail`, `password`, `activated`, `banned`, `ban_reason`, `new_password_key`, `new_password_requested`, `new_email`, `new_email_key`, `last_ip`, `last_login`, `created`, `modified`, `role`, `description`) VALUES
+(2, 'Grzojdaaaaaa', 'alakadazam@uuqw.kk', '$2a$08$dgthgL5DYbExXoAzUkoOr.1/SIiWPlTzZvB3WbXtdAuQhzxXs35C6', 1, 0, NULL, NULL, NULL, NULL, NULL, '::1', '2017-04-11 19:20:53', '0000-00-00 00:00:00', '2017-04-11 17:20:53', 'administrator', 'My name is lepszy, naj lepszy'),
+(3, 'Grzegorz', 'grzojda@gmial.com', '$2a$08$dgthgL5DYbExXoAzUkoOr.1/SIiWPlTzZvB3WbXtdAuQhzxXs35C6', 1, 0, NULL, NULL, NULL, NULL, NULL, '::1', '2017-04-11 19:06:36', '0000-00-00 00:00:00', '2017-04-11 17:06:36', 'user', NULL),
+(15, 'Grzojdatel', 'grzojda@gmail.com', '$2a$08$n5bJYHgjFbaEyD2jrSemrewH4GYyQgDl2MlT2cVw1h6/4TgfomjDK', 1, 0, NULL, NULL, NULL, NULL, '4076fc9c34d70e9855c3cdf56afadb60', '192.168.0.148', '2017-02-03 14:33:15', '2017-01-28 15:55:44', '2017-02-03 13:33:15', '', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `categories`
+--
+
+CREATE TABLE `categories` (
+  `id` int(11) NOT NULL,
+  `name` text CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL COMMENT 'Nazwa kategori'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='Zawiera kategorie wątków';
+
+--
+-- Zrzut danych tabeli `categories`
+--
+
+INSERT INTO `categories` (`id`, `name`) VALUES
+(1, 'Ogólne'),
+(2, 'Społeczność');
 
 -- --------------------------------------------------------
 
@@ -71,6 +86,22 @@ CREATE TABLE `login_attempts` (
   `login` varchar(50) COLLATE utf8_bin NOT NULL,
   `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `messages`
+--
+
+CREATE TABLE `messages` (
+  `id` int(11) NOT NULL,
+  `messfrom` text CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL COMMENT 'Autor wiadomości',
+  `messto` text CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL COMMENT 'Odbiorca wiadomości',
+  `title` text CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL COMMENT 'Tytuł wiadomości',
+  `tresc` text CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL COMMENT 'Treść wiadomości',
+  `sendtime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Czas wysłania',
+  `view` int(11) NOT NULL DEFAULT '0' COMMENT 'Wyświetlona'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -96,7 +127,8 @@ CREATE TABLE `posty` (
 --
 
 INSERT INTO `posty` (`id`, `name`, `tresc`, `authorname`, `starttime`, `actudate`, `odp`, `wys`, `lastuser`, `watkiid`) VALUES
-(1, 'Regulamin', '1.Nie przeklinamy\r\n2.Nie popełniamy co chwilę błędów ortograficznych\r\nZa nie przestrzeganie któregokolwiek z punktów grozi ban!\r\nProszę o podpisywanie się, oraz opcjonalnie podpowiadanie co można opcjonalnie zmienić :D', 'Grzojda', '2017-02-24', '2017-03-23 06:55:22', 0, 10, 'Grzojda', 1);
+(1, 'Regulamin Główny', '1.Nie przeklinamy\r\n2.Nie popełniamy co chwilę błędów ortograficznych\r\nZa nie przestrzeganie któregokolwiek z punktów grozi ban!\r\nProszę o podpisywanie się, oraz opcjonalnie podpowiadanie co można opcjonalnie zmienić :D', 'Grzojda', '2017-02-24', '2017-04-11 03:35:46', 1, 55, 'Grzojda', 1),
+(2, 'Mój post', 'Lepiej nie wiedzieć co mogło by się tu znaleźć', 'Grzojdaaaaaa', '2017-04-02', '2017-04-11 17:15:03', 1, 4, '', 1);
 
 -- --------------------------------------------------------
 
@@ -149,7 +181,6 @@ CREATE TABLE `user_autologin` (
 
 INSERT INTO `user_autologin` (`key_id`, `user_id`, `user_agent`, `last_ip`, `last_login`) VALUES
 ('3b6005cec6d7f00620bf3152030ff476', 15, 'Mozilla/5.0 (Linux; U; Android 4.4.2; pl-pl; A916 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/42.0.0.0 Mobile Safari/537.', '192.168.0.148', '2017-02-03 13:33:15'),
-('69aa6761e3985cc31cad8d8f1983ac56', 2, 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:52.0) Gecko/20100101 Firefox/52.0', '::1', '2017-03-23 07:06:36'),
 ('bfb557ea6bed8b521144407293a75360', 2, 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0', '::1', '2017-01-27 08:50:55');
 
 -- --------------------------------------------------------
@@ -178,16 +209,18 @@ CREATE TABLE `watki` (
   `posts` int(11) NOT NULL DEFAULT '0',
   `startdate` date NOT NULL,
   `important` int(1) NOT NULL DEFAULT '0',
-  `actudate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `actudate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `categoryid` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Zrzut danych tabeli `watki`
 --
 
-INSERT INTO `watki` (`id`, `name`, `authorname`, `posts`, `startdate`, `important`, `actudate`) VALUES
-(1, 'Regulamin', 'Grzojda', 1, '0000-00-00', 1, '2017-02-24 04:53:26'),
-(2, 'Telefony', 'Grzojdaaaaaa', 0, '2017-03-13', 0, '2017-03-13 18:22:08');
+INSERT INTO `watki` (`id`, `name`, `authorname`, `posts`, `startdate`, `important`, `actudate`, `categoryid`) VALUES
+(1, 'Regulamin', 'Grzojdaaaaaa', 2, '0000-00-00', 1, '2017-04-11 18:32:30', 2),
+(2, 'Telefony', 'Grzojdaaaaaa', 0, '2017-03-13', 0, '2017-04-11 18:32:30', 1),
+(5, 'Android', '', 0, '2017-03-24', 0, '2017-04-11 18:32:30', 1);
 
 -- --------------------------------------------------------
 
@@ -208,8 +241,8 @@ CREATE TABLE `wpisy` (
 --
 
 INSERT INTO `wpisy` (`id`, `addtime`, `authorname`, `text`, `postyid`) VALUES
-(3, '2017-03-23 06:07:23', 'Grzojdaaaaaa', 'Proszę o dodanie, że za zbyt częste błędy ortograficzne będzie ban', 1),
-(4, '2017-03-23 06:36:44', 'Grzegorz', 'Nie zgadzam się z osobą wyżej', 1);
+(1, '2017-04-02 05:58:42', 'Grzojdaaaaaa', 'KUPPPAAAA', 1),
+(2, '2017-04-11 03:36:01', 'Grzegorz', 'A ja jestem ciekaw', 2);
 
 --
 -- Indeksy dla zrzutów tabel
@@ -219,12 +252,25 @@ INSERT INTO `wpisy` (`id`, `addtime`, `authorname`, `text`, `postyid`) VALUES
 -- Indexes for table `author`
 --
 ALTER TABLE `author`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `authorname` (`authorname`(20));
+
+--
+-- Indexes for table `categories`
+--
+ALTER TABLE `categories`
   ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `login_attempts`
 --
 ALTER TABLE `login_attempts`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `messages`
+--
+ALTER TABLE `messages`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -275,15 +321,25 @@ ALTER TABLE `wpisy`
 ALTER TABLE `author`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
+-- AUTO_INCREMENT dla tabeli `categories`
+--
+ALTER TABLE `categories`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
 -- AUTO_INCREMENT dla tabeli `login_attempts`
 --
 ALTER TABLE `login_attempts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT dla tabeli `messages`
+--
+ALTER TABLE `messages`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT dla tabeli `posty`
 --
 ALTER TABLE `posty`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT dla tabeli `users`
 --
@@ -298,12 +354,12 @@ ALTER TABLE `user_profiles`
 -- AUTO_INCREMENT dla tabeli `watki`
 --
 ALTER TABLE `watki`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT dla tabeli `wpisy`
 --
 ALTER TABLE `wpisy`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- Ograniczenia dla zrzutów tabel
 --

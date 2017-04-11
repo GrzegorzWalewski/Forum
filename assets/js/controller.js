@@ -58,6 +58,20 @@ function loadPrimary()//Ładuje najważniejsze wątki
 			document.getElementById("primary").innerHTML=this.responseText;
 		}
 	}
-	xhttp.open("GET",base_url+"/index/primary",true);
+	xhttp.open("GET",base_url+"index/primary",true);
 	xhttp.send();
+}
+function loadAll()
+{
+	var xhttp=new XMLHttpRequest();
+	xhttp.onreadystatechange=function()
+	{
+		if(this.readyState==4 && this.status==200)
+		{
+			document.getElementById("all").innerHTML=this.responseText;
+		}
+	}
+	xhttp.open("GET",base_url+"/index/allwatki",true);
+	xhttp.send();
+	setTimeout("loadAll()",1000);
 }

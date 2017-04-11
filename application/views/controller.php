@@ -8,7 +8,7 @@
 <link type="text/css" rel="stylesheet" href="<?php echo base_url()."assets/css/style.css";?>"/>
 <script type="text/javascript" src="<?php echo base_url()."assets/js/controller.js";?>"></script>
 </head>
-<body onload="loadDoc(); loadRole(); loadNewer(); <?php if(!isset($watki)&&!isset($posty)){echo "loadPrimary();";}?>">
+<body onload="loadDoc(); loadRole(); loadNewer(); <?php if(!isset($watki)&&!isset($posty)){echo "loadPrimary();  loadAll();";}?>">
 <div id="search">
 Wyszukaj
 <?php
@@ -26,6 +26,7 @@ Wyszukaj
 	echo form_submit('submit','Wyszukaj');
 	echo form_close();
 ?>
+</div>
 <div id="who">
 </div>
 <div id="userbuttons">
@@ -37,8 +38,8 @@ Wyszukaj
 	</tr>
 </table>
 <div id="primary"></div>
-<div id="newer">
-</div> 
+<div id="all"></div>
+<div id="newer"></div> 
 <?php
 	if(isset($watek))
 	{

@@ -83,6 +83,19 @@ Class download_model extends CI_Model
 		$s=$this->db->get('wpisy');
 		return $s;
 	}
+	public function allwatki()//pobiera wątki oznaczone jako ważne
+	{
+		$this->db->select('name,startdate,authorname,actudate,posts,id,categoryid');
+		$s=$this->db->get('watki');
+		$s->result();
+		return $s;
+	}
+		public function categories()//pobiera wątki oznaczone jako ważne
+	{
+		$s=$this->db->get('categories');
+		$s->result();
+		return $s;
+	}
 }
 
 ?>

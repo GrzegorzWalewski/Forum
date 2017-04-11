@@ -16,7 +16,7 @@
 <th>Wszystkich Postów</th>
 </tr>
 <tr>
-<td><a href=/default/index.php/index/watki/<?php echo $w->id;?>><?php echo $w->name;?></a></td>
+<td><a href=<?php echo base_url()."index/watki/".$w->id;?>><?php echo $w->name;?></a></td>
 <td><?php echo $w->authorname; ?></td>
 <td><?php echo $w->startdate; ?></td>
 <td><?php echo $w->actudate; ?></td>

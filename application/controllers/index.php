@@ -20,7 +20,7 @@ class Index extends CI_Controller {
 			else{redirect('/forum/addpostform','refresh');}
 		}
 	}
-	public function watki()//Pobiera i przekazuje do widoku wątki
+	public function watki()//Pobiera i przekazuje do widoku wątek
 	{	
 		$this->load->model('download_Model');
 		if($this->tank_auth->is_logged_in())
@@ -35,6 +35,13 @@ class Index extends CI_Controller {
 		$data['posty']=$this->download_Model->getposts($adress);
 		$data['id']=$this->uri->segment(3);
 		$this->load->view('controller',$data);
+	}
+	public function allwatki()//Pobiera i przekazuje do widoku wątki
+	{	
+		$this->load->model('download_model');
+		$data['allwatki']=$this->download_model->allwatki();
+		$data['categories']=$this->download_model->categories();
+		$this->load->view('watki',$data);
 	}
 	public function primary()//Pobiera i przekazuje do widoku ważne wątki
 	{
