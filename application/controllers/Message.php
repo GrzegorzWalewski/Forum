@@ -14,6 +14,7 @@ class Message extends CI_Controller {
 	{
 		$username=$this->tank_auth->get_username();
 		$data['messages']=$this->Message_Model->getmessages($username);
+		$data['sendedmess']=$this->Message_Model->getsended($username);
 		$this->load->view('messages',$data);	
 	}
 	public function gettresc()
@@ -41,8 +42,9 @@ class Message extends CI_Controller {
 	}
 	public function delete()
 	{
-		$id=$this->uri->segment(3);
-		$this->Message_Model->delete($id);
+		$id=$this->uri->segment(4);
+		$type=$this->uri->segment(3);
+		$this->Message_Model->delete($id,$type);
 		redirect(base_url().'message');
 	}
 	public function sendform()
