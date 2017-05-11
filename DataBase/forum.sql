@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Czas generowania: 11 Kwi 2017, 21:14
+-- Czas generowania: 11 Maj 2017, 13:50
 -- Wersja serwera: 10.1.16-MariaDB
 -- Wersja PHP: 5.5.38
 
@@ -51,8 +51,8 @@ CREATE TABLE `author` (
 --
 
 INSERT INTO `author` (`id`, `authorname`, `authormail`, `password`, `activated`, `banned`, `ban_reason`, `new_password_key`, `new_password_requested`, `new_email`, `new_email_key`, `last_ip`, `last_login`, `created`, `modified`, `role`, `description`) VALUES
-(2, 'Grzojdaaaaaa', 'alakadazam@uuqw.kk', '$2a$08$dgthgL5DYbExXoAzUkoOr.1/SIiWPlTzZvB3WbXtdAuQhzxXs35C6', 1, 0, NULL, NULL, NULL, NULL, NULL, '::1', '2017-04-11 19:20:53', '0000-00-00 00:00:00', '2017-04-11 17:20:53', 'administrator', 'My name is lepszy, naj lepszy'),
-(3, 'Grzegorz', 'grzojda@gmial.com', '$2a$08$dgthgL5DYbExXoAzUkoOr.1/SIiWPlTzZvB3WbXtdAuQhzxXs35C6', 1, 0, NULL, NULL, NULL, NULL, NULL, '::1', '2017-04-11 19:06:36', '0000-00-00 00:00:00', '2017-04-11 17:06:36', 'user', NULL),
+(2, 'Grzojdaaaaaa', 'alakadazam@uuqw.kk', '$2a$08$dgthgL5DYbExXoAzUkoOr.1/SIiWPlTzZvB3WbXtdAuQhzxXs35C6', 1, 0, NULL, NULL, NULL, NULL, NULL, '::1', '2017-05-09 20:49:21', '0000-00-00 00:00:00', '2017-05-09 18:49:21', 'administrator', 'My name is lepszy, naj lepszy'),
+(3, 'Grzegorz', 'grzojda@gmial.com', '$2a$08$dgthgL5DYbExXoAzUkoOr.1/SIiWPlTzZvB3WbXtdAuQhzxXs35C6', 1, 0, NULL, NULL, NULL, NULL, NULL, '::1', '2017-05-09 00:22:09', '0000-00-00 00:00:00', '2017-05-08 22:22:09', 'user', NULL),
 (15, 'Grzojdatel', 'grzojda@gmail.com', '$2a$08$n5bJYHgjFbaEyD2jrSemrewH4GYyQgDl2MlT2cVw1h6/4TgfomjDK', 1, 0, NULL, NULL, NULL, NULL, '4076fc9c34d70e9855c3cdf56afadb60', '192.168.0.148', '2017-02-03 14:33:15', '2017-01-28 15:55:44', '2017-02-03 13:33:15', '', NULL);
 
 -- --------------------------------------------------------
@@ -100,7 +100,9 @@ CREATE TABLE `messages` (
   `title` text CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL COMMENT 'Tytuł wiadomości',
   `tresc` text CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL COMMENT 'Treść wiadomości',
   `sendtime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Czas wysłania',
-  `view` int(11) NOT NULL DEFAULT '0' COMMENT 'Wyświetlona'
+  `view` int(11) NOT NULL DEFAULT '0' COMMENT 'Wyświetlona',
+  `delfrom` int(11) NOT NULL DEFAULT '0' COMMENT 'Usunięcie wiadomości przez wysyłającego',
+  `delto` int(11) NOT NULL DEFAULT '0' COMMENT 'Usunięcie wiadomości przez odbiorce'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -127,7 +129,7 @@ CREATE TABLE `posty` (
 --
 
 INSERT INTO `posty` (`id`, `name`, `tresc`, `authorname`, `starttime`, `actudate`, `odp`, `wys`, `lastuser`, `watkiid`) VALUES
-(1, 'Regulamin Główny', '1.Nie przeklinamy\r\n2.Nie popełniamy co chwilę błędów ortograficznych\r\nZa nie przestrzeganie któregokolwiek z punktów grozi ban!\r\nProszę o podpisywanie się, oraz opcjonalnie podpowiadanie co można opcjonalnie zmienić :D', 'Grzojda', '2017-02-24', '2017-04-11 03:35:46', 1, 55, 'Grzojda', 1),
+(1, 'Regulamin Główny', '1.Nie przeklinamy\r\n2.Nie popełniamy co chwilę błędów ortograficznych\r\nZa nie przestrzeganie któregokolwiek z punktów grozi ban!\r\nProszę o podpisywanie się, oraz opcjonalnie podpowiadanie co można opcjonalnie zmienić :D', 'Grzojda', '2017-02-24', '2017-05-08 21:54:52', 2, 63, 'Grzojda', 1),
 (2, 'Mój post', 'Lepiej nie wiedzieć co mogło by się tu znaleźć', 'Grzojdaaaaaa', '2017-04-02', '2017-04-11 17:15:03', 1, 4, '', 1);
 
 -- --------------------------------------------------------
@@ -242,7 +244,8 @@ CREATE TABLE `wpisy` (
 
 INSERT INTO `wpisy` (`id`, `addtime`, `authorname`, `text`, `postyid`) VALUES
 (1, '2017-04-02 05:58:42', 'Grzojdaaaaaa', 'KUPPPAAAA', 1),
-(2, '2017-04-11 03:36:01', 'Grzegorz', 'A ja jestem ciekaw', 2);
+(2, '2017-04-11 03:36:01', 'Grzegorz', 'A ja jestem ciekaw', 2),
+(3, '2017-04-11 19:36:32', 'Grzegorz', 'Zgadzam się', 1);
 
 --
 -- Indeksy dla zrzutów tabel
@@ -329,7 +332,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT dla tabeli `login_attempts`
 --
 ALTER TABLE `login_attempts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT dla tabeli `messages`
 --
@@ -359,7 +362,7 @@ ALTER TABLE `watki`
 -- AUTO_INCREMENT dla tabeli `wpisy`
 --
 ALTER TABLE `wpisy`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- Ograniczenia dla zrzutów tabel
 --
