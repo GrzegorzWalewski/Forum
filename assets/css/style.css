@@ -31,3 +31,13 @@ h1
 #previewWin h1, #previewWin h2{
 	font-size: 1.0em;
 }
+.tabela 
+{
+	margin-left: auto;
+	margin-right: auto;
+	border-spacing: 14px 17px;
+}
+.naglowki
+{
+	color: black;
+}

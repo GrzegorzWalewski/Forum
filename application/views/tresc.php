@@ -1,16 +1,7 @@
-<!DOCTYPE html>
-<html lang="pl">
-<head>
-<meta cherset="utf-8">
-<link href='https://fonts.googleapis.com/css?family=Bungee' rel='stylesheet'>
-<link href='https://fonts.googleapis.com/css?family=Bungee Shade' rel='stylesheet'>
-<link type="text/css" rel="stylesheet" href="<?php echo base_url()."assets/css/style.css";?>"/>
-</head>
-<body>
 <h1>Najważniejsze watki</h1>
-<table>
+<table class="tabela">
 	<?php foreach($wazne->result() as $w): ?>
-<tr>
+<tr class="naglowki">
 <th>Nazwa</th>
 <th>Twórca</th>
 <th>Data Utworzenia</th>
@@ -26,5 +17,3 @@
 <?php endforeach; ?>
 </tr>
 </table>
-</body>
-</html>

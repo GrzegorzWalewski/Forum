@@ -1,3 +1,8 @@
+addOnload(loadDoc);
+addOnload(loadRole);
+addOnload(loadNewer);
+addOnload(loadPrimary);
+addOnload(loadAll);
 var base_url = '';
 var role_url = '';
 document.addEventListener('DOMContentLoaded', function(){ 
@@ -30,9 +35,9 @@ function loadRole()//Wyświetla link do dodawanie(zależnie od roli i podstrony)
 			document.getElementById("userbuttons").innerHTML=this.responseText;
 		}
 	}
-	xhttp.open("GET",base_url+"/index/userrole"+role_url,true);
+	xhttp.open("GET",base_url+"/index/userrole"+role_url,false);
 	xhttp.send();
-	setTimeout("loadRole()",1000);
+	setTimeout("loadRole()",5*1000);
 }
 function loadNewer()//Ładuje najnowsze wątki
 {
@@ -46,7 +51,7 @@ function loadNewer()//Ładuje najnowsze wątki
 	}
 	xhttp.open("GET",base_url+"/index/newer",true);
 	xhttp.send();
-	setTimeout("loadNewer()",1000);
+	setTimeout("loadNewer()",60*5*1000);
 }
 function loadPrimary()//Ładuje najważniejsze wątki
 {
@@ -58,7 +63,7 @@ function loadPrimary()//Ładuje najważniejsze wątki
 			document.getElementById("primary").innerHTML=this.responseText;
 		}
 	}
-	xhttp.open("GET",base_url+"index/primary",true);
+	xhttp.open("GET",base_url+"index/primary"+role_url,true);
 	xhttp.send();
 }
 function loadAll()
@@ -71,7 +76,7 @@ function loadAll()
 			document.getElementById("all").innerHTML=this.responseText;
 		}
 	}
-	xhttp.open("GET",base_url+"/index/allwatki",true);
+	xhttp.open("GET",base_url+"/index/allwatki"+role_url,true);
 	xhttp.send();
-	setTimeout("loadAll()",1000);
+	setTimeout("loadAll()",5*60*1000);
 }

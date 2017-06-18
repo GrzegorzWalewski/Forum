@@ -38,16 +38,24 @@ class Index extends CI_Controller {
 	}
 	public function allwatki()//Pobiera i przekazuje do widoku wątki
 	{	
+		$adress=$this->uri->segment(3);
+		if($adress=="")
+		{
 		$this->load->model('download_model');
 		$data['allwatki']=$this->download_model->allwatki();
 		$data['categories']=$this->download_model->categories();
 		$this->load->view('watki',$data);
+		}
 	}
 	public function primary()//Pobiera i przekazuje do widoku ważne wątki
 	{
+		$adress=$this->uri->segment(3);
+		if($adress=="")
+		{
 		$this->load->model('download_model');
 		$data['wazne']=$this->download_model->wazne();
 		$this->load->view('tresc',$data);
+		}
 	}
 	public function who()//Pobiera informacje o użytkowniku i wyświetla dane o nim, lub linki do logowania i rejestracji
 	{

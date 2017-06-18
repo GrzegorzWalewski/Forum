@@ -8,9 +8,11 @@
 <link href='https://fonts.googleapis.com/css?family=Bungee' rel='stylesheet'>
 <link href='https://fonts.googleapis.com/css?family=Bungee Shade' rel='stylesheet'>
 <link type="text/css" rel="stylesheet" href="<?php echo base_url()."assets/css/style.css";?>"/>
+<script type="text/javascript" src="<?php echo base_url()."assets/js/onLoad.js";?>"></script>
 <script type="text/javascript" src="<?php echo base_url()."assets/js/controller.js";?>"></script>
 </head>
-<body onload="loadDoc(); loadRole(); loadNewer(); <?php if(!isset($watki)&&!isset($posty)){echo "loadPrimary();  loadAll();";}?>">
+<body>
+	 onload="<?php if(!isset($watki)&&!isset($posty)){echo "loadPrimary();  loadAll();";}?>"
 <div id="search">
 Wyszukaj
 <?php
