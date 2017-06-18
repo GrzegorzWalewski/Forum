@@ -1,7 +1,33 @@
 body {
-    background-color:#373D3F;
-    color:#f2c71a;
+    background-color:#4ABDAC;
+    color:#DFDCE3;
+    font-size: 18px;
+	font-family: 'Bungee';
+	line-height: 19px;
+	text-align: center;
 }
 a{
-	color:#f2c71a;
+	color:#f95c1d;
+}
+h1
+{
+	color:#000000;
+	font-family: 'Bungee Shade';
+	font-size: 26px;
+}
+#previewWin
+{
+	width:700px;
+	height: 400px;
+	padding: 5px;
+	position: absolute;
+	visibility: hidden;
+	top: 10px;
+	left: 10px;
+	border: 1px #cc0 solid;
+	clip:auto;
+	overflow: hidden;
+}
+#previewWin h1, #previewWin h2{
+	font-size: 1.0em;
 }

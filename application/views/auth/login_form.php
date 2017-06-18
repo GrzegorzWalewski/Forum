@@ -5,6 +5,7 @@
 $login = array(
 	'name'	=> 'login',
 	'id'	=> 'login',
+	'class' => 'reqd',
 	'value' => set_value('login'),
 	'maxlength'	=> 80,
 	'size'	=> 30,
@@ -18,6 +19,7 @@ if ($login_by_username AND $login_by_email) {
 }
 $password = array(
 	'name'	=> 'password',
+	'class' => 'reqd',
 	'id'	=> 'password',
 	'size'	=> 30,
 );
