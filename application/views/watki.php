@@ -11,28 +11,30 @@
 foreach($categories->result() as $category)
  {
  	echo "<h1>".$category->name."</h1>";
- 	foreach($allwatki->result() as $w)
- 	{
-	 	if($category->id==$w->categoryid)
-	 	{
-			echo"<table>
-			<tr>
+ 	echo"<table class=\"tabela\">
+			<tr class=\"naglowki\">
 			<th>Nazwa</th>
 			<th>Twórca</th>
 			<th>Data Utworzenia</th>
 			<th>Data ostatniego posta</th>
 			<th>Wszystkich Postów</th>
-			</tr>
+			</tr>";
+ 	foreach($allwatki->result() as $w)
+ 	{
+	 	if($category->id==$w->categoryid)
+	 	{
+			echo"
 			<tr>
 			<td><a href=".base_url()."index/watki/".$w->id.">".$w->name."</a></td>
 			<td>".$w->authorname."</td>
 			<td>".$w->startdate."</td>
 			<td>".$w->actudate."</td>
 			<td>".$w->posts."</td>
-			</tr>
-			</table>";
+			</tr>";
+			
 	 	}
  	}
+ 	echo "</table>";
  }
 ?>
 </body>

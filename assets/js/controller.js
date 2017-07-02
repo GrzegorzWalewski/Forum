@@ -3,6 +3,7 @@ addOnload(loadRole);
 addOnload(loadNewer);
 addOnload(loadPrimary);
 addOnload(loadAll);
+addOnload(loadWatek);
 var base_url = '';
 var role_url = '';
 document.addEventListener('DOMContentLoaded', function(){ 
@@ -21,9 +22,8 @@ function loadDoc() //funkcja odpowiadająca za załadowanie widoku guest/profil
 			document.getElementById("who").innerHTML=this.responseText;
 		}
 	}
-	xhttp.open("GET",base_url+"/index/who",true);
+	xhttp.open("GET",base_url+"/index/who",false);
 	xhttp.send();
-	setTimeout("loadDoc()",1000);
 }
 function loadRole()//Wyświetla link do dodawanie(zależnie od roli i podstrony)
 {
@@ -79,4 +79,18 @@ function loadAll()
 	xhttp.open("GET",base_url+"/index/allwatki"+role_url,true);
 	xhttp.send();
 	setTimeout("loadAll()",5*60*1000);
+}
+function loadWatek()
+{
+	var xhttp=new XMLHttpRequest();
+	xhttp.onreadystatechange=function()
+	{
+		if(this.readyState==4 && this.status==200)
+		{
+			document.getElementById("watek").innerHTML=this.responseText;
+		}
+	}
+	xhttp.open("GET",base_url+"/index/watek"+role_url,false);
+	xhttp.send();
+	setTimeout("loadAll()",5*1000);
 }

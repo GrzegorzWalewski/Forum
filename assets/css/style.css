@@ -3,7 +3,7 @@ body {
     color:#DFDCE3;
     font-size: 18px;
 	font-family: 'Bungee';
-	line-height: 19px;
+	line-height: 25px;
 	text-align: center;
 }
 a{
@@ -40,4 +40,34 @@ h1
 .naglowki
 {
 	color: black;
+}
+#newer
+{
+	font-size: 13px;
+}
+
+#menu_l
+{
+	height:12px;
+	width:24px;
+}
+ul#menu
+{
+	display: none;
+	list-style-type: none;
+}
+ul#menu li
+{
+padding-left: 35px;
+padding-right: 35px;
+}
+#who
+{
+	float:right;
+	text-align: center;
+}
+.inline
+{
+	vertical-align:top;
+	display: inline-block;
 }
