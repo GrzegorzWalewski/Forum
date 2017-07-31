@@ -20,6 +20,7 @@ class Index extends CI_Controller {
 			else{redirect('/forum/addpostform','refresh');}
 		}
 	}
+
 	public function watki()//Pobiera i przekazuje do widoku wątek
 	{	
 		$this->load->model('download_Model');

@@ -25,6 +25,6 @@
 	echo form_submit('submit','Dodaj Watek');
 	echo form_close();
 ?>
-
+<p><a href="<?php echo base_url() ?>">Wróć</a></p>
 </body>
-
+</html>

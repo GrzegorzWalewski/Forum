@@ -3,7 +3,7 @@ addOnload(loadRole);
 addOnload(loadNewer);
 addOnload(loadPrimary);
 addOnload(loadAll);
-addOnload(loadWatek);
+
 var base_url = '';
 var role_url = '';
 document.addEventListener('DOMContentLoaded', function(){ 
@@ -66,7 +66,7 @@ function loadPrimary()//Ładuje najważniejsze wątki
 	xhttp.open("GET",base_url+"index/primary"+role_url,true);
 	xhttp.send();
 }
-function loadAll()
+function loadAll()//ładuje wątki podzielone na grupy
 {
 	var xhttp=new XMLHttpRequest();
 	xhttp.onreadystatechange=function()
@@ -79,18 +79,4 @@ function loadAll()
 	xhttp.open("GET",base_url+"/index/allwatki"+role_url,true);
 	xhttp.send();
 	setTimeout("loadAll()",5*60*1000);
-}
-function loadWatek()
-{
-	var xhttp=new XMLHttpRequest();
-	xhttp.onreadystatechange=function()
-	{
-		if(this.readyState==4 && this.status==200)
-		{
-			document.getElementById("watek").innerHTML=this.responseText;
-		}
-	}
-	xhttp.open("GET",base_url+"/index/watek"+role_url,false);
-	xhttp.send();
-	setTimeout("loadAll()",5*1000);
 }
