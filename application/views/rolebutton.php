@@ -21,6 +21,10 @@
 		{
 			echo "<a href=\"/default/add/watekform\">Dodaj watek".$adress."</a>";
 		}
+		if(isset($role)&&$role!=""&&$role=="root")
+		{
+			echo "<a href=\"/default/root/main/\">Przejdź do panelu administratora</a>";
+		}
 	?>
 </div>	
 </body>

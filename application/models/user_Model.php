@@ -49,4 +49,11 @@ Class user_Model extends CI_Model
 		$s=$this->db->get('wpisy');
 		return $s;
 	}
+	public function ban($id,$reason)//banuje urzytkownika o danym id
+	{
+		$this->db->set('banned',1);
+		$this->db->set('ban_reason',$reason);
+		$this->db->where('id',$id);
+		$this->db->update('author');
+	}
 }

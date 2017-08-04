@@ -165,4 +165,13 @@ class Index extends CI_Controller {
 	{
 		$this->load->view('add/addopis');
 	}
+	public function trash()
+	{
+		$userid=$this->tank_auth->get_user_id();
+		$reason="Próba włamania się do panelu administracyjnego";
+		$this->load->model('user_model');
+		$this->user_model->ban($userid,$reason);
+		$this->load->view('root/trash');
+		$this->tank_auth->logout();
+	}
 }

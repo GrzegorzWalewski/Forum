@@ -1,16 +1,10 @@
 <?php
 	foreach($watek->result() as $w)
 	{
-		echo "<table>
-		<tr>
-		<th>Nazwa wątku </th>
-		<th>Autor wątku </th>
-		</tr>
-		<tr>
-		<td>".$w->name."</td>
-		<td>".$w->authorname."</td>
-		</tr>
-		</table>";
+		echo "<center class=\"naglowki\">
+			Nazwa Wątku &nbsp; Autor Wątku</br>
+			".$w->name."&nbsp;".$w->authorname."
+			</center>";
 	}
 	foreach($posty->result() as $w)
 	{ 

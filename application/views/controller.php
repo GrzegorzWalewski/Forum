@@ -31,7 +31,9 @@
 		echo form_close();
 	?>
 	</div>
-	<div id="who">
+	<div id="right">
+		<div id="who"></div>
+		<div id="newer"></div>
 	</div>
 	<div id="userbuttons">
 	</div>
@@ -43,7 +45,7 @@
 	</table>
 	<div id="primary"></div>
 	<div id="all"></div>
-	<div id="newer"></div>
+
 	<div id="watek"></div>
 	<?php
 	$base_url=base_url();
@@ -57,4 +59,7 @@
 	}
 	?>
 </body>
+<footer>
+	<span id="madeby">Made by Grzegorz Walewski</span>
+</footer>
 </html>

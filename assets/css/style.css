@@ -45,7 +45,6 @@ h1
 {
 	font-size: 13px;
 }
-
 #menu_l
 {
 	height:12px;
@@ -56,18 +55,19 @@ ul#menu
 	display: none;
 	list-style-type: none;
 }
-ul#menu li
-{
-padding-left: 35px;
-padding-right: 35px;
-}
-#who
+#right 
 {
 	float:right;
+	width: 20%;
+	height: 550px;
+	position: static;
 	text-align: center;
 }
-.inline
+#madeby
 {
-	vertical-align:top;
-	display: inline-block;
+	text-align: left;
+	font-size: 10px;
+	color:#0b1d91;
+	background-color:#f95c1d;
+	width: 100%;
 }

@@ -11,7 +11,7 @@ function menu()
 function toggleMenu()
 {
 	var menuName="menu";
-	document.getElementById(menuName).style.display="inline-block";
+	document.getElementById(menuName).style.display="inline";
 	this.parentNode.className=menuName;
 	this.parentNode.onmouseout=function()
 	{
@@ -19,6 +19,6 @@ function toggleMenu()
 	}
 	this.parentNode.onmouseover=function()
 	{
-		document.getElementById(this.className).style.display="inline-block";
+		document.getElementById(this.className).style.display="inline";
 	}
 }

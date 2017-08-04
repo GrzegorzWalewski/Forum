@@ -3,7 +3,6 @@ addOnload(loadRole);
 addOnload(loadNewer);
 addOnload(loadPrimary);
 addOnload(loadAll);
-
 var base_url = '';
 var role_url = '';
 document.addEventListener('DOMContentLoaded', function(){ 
