@@ -4,7 +4,6 @@
 <meta charset="utf-8">
 <script type="text/javascript" src="<?php echo base_url()."assets/js/onLoad.js";?>"></script>
 <script type="text/javascript" src="<?php echo base_url()."assets/js/menu.js";?>"></script>
-<link type="text/css" rel="stylesheet" href="<?php echo base_url()."assets/css/style.css";?>"/>
 </head>
 <body>
 Zalogowany jako:</br>

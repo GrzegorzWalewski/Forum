@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <title>NajlepszeForum</title>
+<link type="text/css" rel="stylesheet" href="<?php echo base_url()."assets/css/style.php";?>"/>
 </head>
 <body>
 <a href="<?php echo base_url()?>root/color">Zmiana kolorów</a></br>

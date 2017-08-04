@@ -1,17 +1,25 @@
+<?php
+    header("Content-type: text/css; charset: UTF-8");
+    $mainc="#4ABDAC";
+    $textc="#DFDCE3";
+    $linkc="#f95c1d";
+    $h1c="#000000";
+   	$menupos="right";
+?>
 body {
-    background-color:#4ABDAC;
-    color:#DFDCE3;
+    background-color:<?php echo $mainc; ?>;
+    color:<?php echo $textc; ?>;
     font-size: 18px;
 	font-family: 'Bungee';
 	line-height: 25px;
 	text-align: center;
 }
 a{
-	color:#f95c1d;
+	color:<?php echo $linkc;?>;
 }
 h1
 {
-	color:#000000;
+	color:<?php echo $h1c;?>;
 	font-family: 'Bungee Shade';
 	font-size: 26px;
 }
@@ -57,7 +65,7 @@ ul#menu
 }
 #right 
 {
-	float:right;
+	float:<?php echo $menupos; ?>;
 	width: 20%;
 	height: 550px;
 	position: static;
@@ -67,7 +75,7 @@ ul#menu
 {
 	text-align: left;
 	font-size: 10px;
-	color:#0b1d91;
+	color:black;
 	background-color:#f95c1d;
 	width: 100%;
 }
